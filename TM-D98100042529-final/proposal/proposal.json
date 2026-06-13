@@ -1,0 +1,1542 @@
+{
+  "gppt_version": "2.0.0",
+  "exported_at": "2026-05-12T11:37:43.152Z",
+  "state": {
+    "ideaBrief": {
+      "title": "",
+      "domain": "",
+      "audience": "",
+      "coreMetaphor": "",
+      "successVision": ""
+    },
+    "projectTitle": "Agile vs Waterfall Arena: Project Survival Simulation",
+    "organisation": "Istanbul Kultur University",
+    "courseCode": "COM0463",
+    "domain": "pm",
+    "deliverableArea": "SDLC Phase Manager, Agile/Scrum Sprint Simulator",
+    "proposalDate": "2026-03-28",
+    "startDate": "2026-04-15",
+    "teamMembers": [
+      {
+        "name": "Ahmet ",
+        "surname": "Kaya",
+        "email": "2100005631@stu.iku.edu.tr",
+        "role": "Game Designer"
+      },
+      {
+        "name": "Yusuf",
+        "surname": "Altunel",
+        "email": "y.altunel@iku.edu.tr",
+        "role": "Project Lead"
+      }
+    ],
+    "problemStatement": "Many undergraduate IT Project Management students struggle to understand when to apply Agile or Waterfall methodologies in real-world scenarios. Studies and course observations indicate that approximately 60% of students can recall theoretical differences but fail to make correct methodology decisions in practical cases. This gap leads to poor project planning, inefficient resource allocation, and increased project risks. The proposed gamification system addresses this issue by providing an interactive simulation where students actively experience decision-making under varying project conditions. Through this approach, students are expected to develop higher-order cognitive skills aligned with Bloom’s taxonomy (Analyze, Evaluate, Create).",
+    "targetPopulation": "3rd or 4th year undergraduate students enrolled in IT Project Management\n\n\n\n\n\n\n\n\n\n",
+    "successCriteria": [
+      "At least 70% of participants correctly select the appropriate project management methodology based on scenario conditions.",
+      "Average methodology selection accuracy increases by at least 25% between pre-test and post-test assessments.",
+      "At least 80% of participants successfully complete all project simulation scenarios within the allocated session time.",
+      "Decision-making performance related to project constraints (time, budget, quality, and risk) improves by at least 20% across multiple rounds.",
+      "At least 75% of participants correctly identify requirement volatility and stakeholder complexity during scenario analysis.",
+      "Average post-session project management assessment scores improve by at least 30% compared to baseline results.",
+      "At least 70% of participants provide evidence-based justifications for their methodology choices during reflection activities.",
+      "More than 80% of participants actively participate in collaborative discussion and peer-feedback activities during gameplay sessions.",
+      "At least 85% of participants report improved confidence in applying Agile and Waterfall methodologies to real-world project cases.",
+      "Course performance related to project management case-study questions improves by at least one letter-grade equivalent after implementation of the gamification system."
+    ],
+    "bloomOutcomes": [
+      {
+        "level": "L3",
+        "outcome": "Students will APPLY appropriate software development methodology (Agile vs Waterfall) based on given project scenarios  ",
+        "activity": "Scenario analysis and methodology selection  ",
+        "assessment": "Decision accuracy rate per scenario (% correct selections)",
+        "bloom_k": 1
+      },
+      {
+        "level": "L4",
+        "outcome": "Students will ANALYSE project characteristics (requirement stability, risk, stakeholder involvement)  ",
+        "activity": "Scenario breakdown before decision  ",
+        "assessment": "Pre-decision analysis accuracy (rubric-based scoring)",
+        "bloom_k": 2
+      },
+      {
+        "level": "L5",
+        "outcome": "Students will EVALUATE different methodologies and justify their decisions  ",
+        "activity": "Reflection phase after each scenario  ",
+        "assessment": "Quality of justification (scored with rubric)",
+        "bloom_k": 3
+      },
+      {
+        "level": "L6",
+        "outcome": "Students will CREATE optimal project strategies under varying conditions  ",
+        "activity": "Managing project constraints (time, cost, quality)  ",
+        "assessment": "Scenario success rate under constraints",
+        "bloom_k": 4
+      },
+      {
+        "level": "L1",
+        "outcome": "Students will REMEMBER the fundamental characteristics of Agile and Waterfall methodologies.",
+        "activity": "Introductory methodology identification quiz",
+        "assessment": "Quiz accuracy score on terminology and methodology features",
+        "bloom_k": 5
+      },
+      {
+        "level": "L2",
+        "outcome": "Students will UNDERSTAND how project conditions influence methodology selection.",
+        "activity": "Scenario explanation and group discussion",
+        "assessment": "Short written explanation evaluated with rubric scoring",
+        "bloom_k": 6
+      }
+    ],
+    "theories": [
+      "oct",
+      "kirk",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick",
+      "sdt",
+      "mda",
+      "bloom",
+      "hexad",
+      "kirkpatrick"
+    ],
+    "narrativeTheme": "A global software company is struggling to manage multiple complex digital transformation projects under strict deadlines, changing customer demands, limited budgets, and increasing stakeholder pressure. Players take the role of project managers responsible for choosing the most suitable project management methodology for each business case. Some projects require rapid iteration and flexible planning, while others demand strict documentation, stable requirements, and controlled execution. Throughout the simulation, players analyse risks, allocate resources, respond to unexpected project events, and balance quality, time, and budget constraints. The game integrates Self-Determination Theory through meaningful strategic choices, Mechanics-Dynamics-Aesthetics principles through interactive gameplay systems, and Bloom Taxonomy through higher-order analysis and evaluation tasks. HEXAD Player Types are supported through collaborative, competitive, and exploratory mechanics, while the Kirkpatrick Evaluation Framework measures engagement, learning transfer, and educational effectiveness across gameplay sessions.",
+    "gameOverview": "The game simulates real-world project management decision-making through interactive scenario-based challenges. Players analyse project characteristics such as requirement stability, stakeholder involvement, risk level, budget pressure, and delivery urgency before selecting Agile or Waterfall methodologies. The system combines strategic decision-making, adaptive gameplay, scoring systems, feedback loops, and collaborative discussion to reinforce learning outcomes. The design integrates Self-Determination Theory, Mechanics-Dynamics-Aesthetics, HEXAD player motivations, Bloom Taxonomy cognitive levels, and the Kirkpatrick four-level evaluation approach to create both engaging gameplay and measurable educational impact.",
+    "sdtAutonomy": "Players are given meaningful choices by selecting Agile or Waterfall methodologies based on project conditions. They can also decide which methodology-specific actions to apply during each scenario, such as Sprint, Retrospective, Gantt Chart, or Gate Review. This gives players control over their strategic path and allows them to experience the consequences of their own decisions.",
+    "sdtCompetence": "Competence is supported through progressive difficulty and feedback-driven learning. Early scenarios present simpler and more predictable project conditions, while later scenarios introduce volatile requirements, higher risks, and stakeholder complexity. Players improve by learning which methodology fits which context, and they receive immediate feedback that reinforces mastery and better decision-making.",
+    "sdtRelatedness": "Relatedness is supported through team-based discussion, comparison of strategies, and shared reflection on project outcomes. Players can collaborate in small groups or compare their methodology choices with others, which encourages communication and peer learning. This social interaction helps students understand that project management decisions are often made collectively in real-world environments.",
+    "hexad": {
+      "Achiever": 20,
+      "Disruptor": 10,
+      "FreeSpirit": 15,
+      "Philanthropist": 20,
+      "Player": 15,
+      "Socialiser": 20
+    },
+    "rewardStructure": {
+      "elite": "Executive project leader badge, priority scenario access, strategic voting rights for special missions, and exclusive high-level achievement rewards.",
+      "professional": "Certificate bonuses, methodology mastery badges, advanced training materials, mentorship opportunities, and additional project simulation scenarios.",
+      "access": "Participation credits, cosmetic profile customisation items, basic achievement badges, leaderboard visibility, and discussion forum privileges."
+    },
+    "octalysis": {
+      "epic": 3,
+      "development": 4,
+      "empowerment": 3,
+      "ownership": 2,
+      "social": 3,
+      "scarcity": 2,
+      "unpredictability": 3,
+      "avoidance": 2
+    },
+    "mechanics": [
+      "pts",
+      "lvl",
+      "chal",
+      "quest",
+      "feed",
+      "lb",
+      "role"
+    ],
+    "conceptMappings": [
+      {
+        "concept": "Selecting appropriate project methodology",
+        "mechanic": " Methodology selection (Agile vs Waterfall)",
+        "dynamic": "Strategic decision-making based on scenario conditions",
+        "aesthetic": "Challenge and critical thinking",
+        "rationale": "Players learn when to use each methodology by applying it in context"
+      },
+      {
+        "concept": "Requirement volatility",
+        "mechanic": "Scenario variation (stable vs changing requirements)",
+        "dynamic": "Adaptation and flexibility in decision-making",
+        "aesthetic": " Tension and uncertainty",
+        "rationale": "Demonstrates how Agile performs better in dynamic environments"
+      },
+      {
+        "concept": "Project constraints (time, budget, quality, risk)",
+        "mechanic": "Resource management system",
+        "dynamic": "Trade-off analysis and prioritisation",
+        "aesthetic": " Strategy and problem-solving",
+        "rationale": "Teaches balancing competing project constraints"
+      },
+      {
+        "concept": "Risk management",
+        "mechanic": "Random risk events",
+        "dynamic": "Reactive and proactive decision-making",
+        "aesthetic": "Uncertainty and excitement",
+        "rationale": "Simulates real-world unpredictability in projects"
+      },
+      {
+        "concept": "Decision impact on outcomes",
+        "mechanic": "Feedback system after each round",
+        "dynamic": "Reflection and learning from outcomes",
+        "aesthetic": "Mastery and improvement",
+        "rationale": "Reinforces learning through cause-effect relationships"
+      }
+    ],
+    "mdaAnalysis": {
+      "mechanics": "The main mechanics include scenario-based decision-making, methodology selection (Agile or Waterfall), methodology-specific action cards, project metrics (time, budget, quality, and risk), scoring rules, and feedback after each round. Players interact with structured project situations and use strategic choices to influence the final project outcome.",
+      "dynamics": "These mechanics create dynamics such as strategic comparison, trade-off analysis, adaptive decision-making, and risk-response behaviour. As project conditions change, players learn that one methodology does not fit every scenario. This encourages experimentation, reflection, and deeper understanding of project constraints and methodology suitability.",
+      "aesthetics": "The desired player experience includes challenge, strategic thinking, tension, mastery, and satisfaction. Players should feel engaged as they try to make the best possible methodology choice under changing project conditions. The game aims to create a sense of accomplishment when players successfully align project strategy with scenario needs."
+    },
+    "scenarios": [
+      {
+        "id": "SC-01",
+        "name": "Main Scenario",
+        "title": "Startup Project: Changing Requirements",
+        "setup": "A startup company is developing a mobile application.\nThe client frequently changes requirements and expects rapid iterations.\nResources are limited, and time-to-market is critical.",
+        "objective": "Players must select the most appropriate development methodology and manage the project effectively under changing requirements.",
+        "winCondition": "Correctly identify project characteristics AND select Agile methodology AND maintain project success indicators above threshold.",
+        "loseCondition": "Selecting an inappropriate methodology (e.g., Waterfall) OR failing to manage project constraints (time, quality).",
+        "maxPoints": 100,
+        "duration": "20 min",
+        "difficulty": "Standard",
+        "storyboard": "Players take the role of a project manager in a startup environment.\nThey analyze project conditions (uncertainty, stakeholder behavior, time pressure) and decide which methodology to apply.\nThe system simulates project outcomes based on their decisions.",
+        "algorithm": "Rule-based decision engine:  If requirements = dynamic → Agile preferred If feedback loops used → success probability increases If rigid planning chosen → failure risk increases",
+        "outcome": "Requirement changes occur randomly Client feedback timing varies Resource constraints slightly fluctuate",
+        "activities": [
+          {
+            "id": "ACT-01",
+            "action": "Analyze project scenario",
+            "description": "Player evaluates requirements stability, stakeholder behavior, and project constraints",
+            "trigger": "At scenario start",
+            "winCondition": "Correct identification of dynamic requirements",
+            "winResult": "Unlock methodology selection",
+            "winPoints": 30,
+            "loseCondition": "Misinterpret scenario (assume stable requirements)",
+            "loseResult": "Misleading next step",
+            "losePoints": -5,
+            "neutralCondition": "Partially correct analysis",
+            "neutralResult": "Limited guidance",
+            "neutralPoints": 10,
+            "timer": "5 min"
+          },
+          {
+            "id": "ACT-02",
+            "action": "Select development methodology",
+            "description": "Player chooses Agile or Waterfall",
+            "trigger": "After analysis",
+            "winCondition": "Select Agile",
+            "winResult": "Project adapts successfully",
+            "winPoints": 40,
+            "loseCondition": "Select Waterfall",
+            "loseResult": "Project struggles with changes",
+            "losePoints": -5,
+            "neutralCondition": "Hesitation / delayed decision",
+            "neutralResult": "Reduced efficiency",
+            "neutralPoints": 10,
+            "timer": "5 min"
+          },
+          {
+            "id": "ACT-03",
+            "action": "Manage project execution",
+            "description": "Player balances time, budget, and quality",
+            "trigger": "After methodology selection",
+            "winCondition": "Maintain all KPIs above threshold",
+            "winResult": "Successful delivery",
+            "winPoints": 30,
+            "loseCondition": "KPIs fall below threshold",
+            "loseResult": "Project failure",
+            "losePoints": -5,
+            "neutralCondition": "Only some KPIs maintained",
+            "neutralResult": "Moderate success",
+            "neutralPoints": 15,
+            "timer": "5 min"
+          }
+        ]
+      },
+      {
+        "id": "SC-02",
+        "name": "Alternative Scenario",
+        "title": "Government Project: Fixed Requirements",
+        "setup": "A government project with clearly defined requirements, strict documentation, and minimal expected changes.\nDeadlines and compliance are critical.",
+        "objective": "Select the most suitable methodology for a stable and predictable project.",
+        "winCondition": "Correctly identify stable requirements AND select Waterfall AND complete project within constraints.",
+        "loseCondition": "Selecting Agile unnecessarily OR mismanaging structured workflow.",
+        "maxPoints": 100,
+        "duration": "15 min",
+        "difficulty": "Hard",
+        "storyboard": "Players act as a project manager in a highly regulated environment.\nThey must follow strict processes and ensure full documentation and predictability.",
+        "algorithm": "Stable requirements → Waterfall preferred High documentation → increases success Agile misuse → inefficiency",
+        "outcome": "Minor delays in approval processes Small budget constraints Documentation requirements variation",
+        "activities": [
+          {
+            "id": "ACT-01",
+            "action": "Analyze project stability",
+            "description": "Evaluate requirement clarity and constraints",
+            "trigger": "Start",
+            "winCondition": "Identify stable requirements",
+            "winResult": "Move to methodology selection",
+            "winPoints": 30,
+            "loseCondition": "Misjudge as dynamic",
+            "loseResult": "Wrong strategy path",
+            "losePoints": -5,
+            "neutralCondition": "Incomplete analysis",
+            "neutralResult": "Limited insight",
+            "neutralPoints": 10,
+            "timer": "5 min"
+          },
+          {
+            "id": "ACT-02",
+            "action": "Select methodology",
+            "description": "",
+            "trigger": "",
+            "winCondition": "Select Waterfall",
+            "winResult": "Structured success",
+            "winPoints": 40,
+            "loseCondition": "Select Agile",
+            "loseResult": "Inefficiency",
+            "losePoints": -5,
+            "neutralCondition": "Delayed decision",
+            "neutralResult": "Reduced performance",
+            "neutralPoints": 10,
+            "timer": "5 min"
+          },
+          {
+            "id": "ACT-03",
+            "action": "Execute project plan",
+            "description": "",
+            "trigger": "",
+            "winCondition": "Follow structured phases correctly",
+            "winResult": "Successful completion",
+            "winPoints": 30,
+            "loseCondition": "Poor phase management",
+            "loseResult": "Delays / failure",
+            "losePoints": -5,
+            "neutralCondition": "Minor inefficiencies",
+            "neutralResult": "Acceptable outcome",
+            "neutralPoints": 15,
+            "timer": "5 min"
+          }
+        ]
+      },
+      {
+        "id": "SC-03",
+        "title": "Enterprise System Migration: High Risk Transformation",
+        "setup": "A large enterprise plans to migrate its legacy infrastructure to a cloud-based system. The project involves multiple departments, strict security requirements, budget limitations, and high operational risks. Stakeholders expect minimal downtime during migration.",
+        "winCondition": "Correctly analyse project risks and stakeholder complexity AND select the most suitable hybrid or phased methodology AND maintain acceptable quality and risk indicators throughout the migration process.",
+        "loseCondition": "Selecting an unsuitable methodology OR ignoring critical migration risks. No punitive scoring is applied; players receive corrective feedback and can retry alternative strategies.",
+        "outcome": "Unexpected security issues may emerge.\nStakeholder priorities may change during migration.\nBudget and downtime constraints dynamically affect decisions.",
+        "neutralCondition": "Project partially succeeds but requires additional iterations and stakeholder negotiations before completion."
+      }
+    ],
+    "gamePhases": [],
+    "userStories": [
+      {
+        "role": "Student / Player",
+        "want": "select the appropriate project management methodology based on project conditions",
+        "soThat": "I can understand when to use Agile or Waterfall in real-world scenarios",
+        "acc": "Given a project scenario with defined characteristics When I choose a methodology Then the system should evaluate my decision based on scenario suitability"
+      },
+      {
+        "role": "Student / Player",
+        "want": "apply methodology-specific actions (e.g., Sprint, Gantt Chart)",
+        "soThat": "I can see how each methodology affects project outcomes",
+        "acc": "Given available action options When I select an action Then project metrics (time, budget, quality, risk) should update accordingly"
+      },
+      {
+        "role": "Student / Player",
+        "want": "receive feedback on my decisions",
+        "soThat": "I can learn from my mistakes and improve my decision-making skills",
+        "acc": "Given a completed scenario When results are displayed Then the system should explain why the chosen methodology was correct or incorrect"
+      },
+      {
+        "role": "Student / Player",
+        "want": "track my performance across multiple scenarios",
+        "soThat": "I can improve my project management skills over time  Acceptance",
+        "acc": "Given multiple completed scenarios When I view my performance Then I should see progress indicators and performance scores"
+      },
+      {
+        "role": "Student / Player",
+        "want": "experience different types of project scenarios",
+        "soThat": "I can understand how project characteristics influence methodology selection",
+        "acc": "Given different scenario types When I play multiple rounds Then each scenario should present different conditions (stable vs volatile requirements)"
+      }
+    ],
+    "frs": [
+      {
+        "id": "FR1",
+        "desc": "The system shall present different project scenarios with varying characteristics such as requirement stability, risk level, and stakeholder complexity.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR2",
+        "desc": "The system shall allow players to choose between Agile and Waterfall methodologies at the beginning of each scenario.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR3",
+        "desc": "The system shall provide methodology-specific action cards (e.g., Sprint, Retrospective, Gantt Chart, Gate Review).",
+        "priority": "Must"
+      },
+      {
+        "id": "FR4",
+        "desc": "The system shall update project metrics (time, budget, quality, risk) based on player decisions.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR5",
+        "desc": "The system shall calculate a final project success score based on defined performance criteria.",
+        "priority": "Must"
+      },
+      {
+        "id": "FR6",
+        "desc": "The system shall provide immediate feedback explaining the impact of each decision on project outcomes.",
+        "priority": "Must"
+      }
+    ],
+    "nfrs": [
+      {
+        "id": "NFR1",
+        "attr": "Usability",
+        "desc": "The system shall be easy to learn and playable within 5 minutes of onboarding",
+        "target": "≥80% of users complete first session without assistance"
+      },
+      {
+        "id": "NFR2",
+        "attr": "Performance",
+        "desc": "The system shall respond to user actions within 2 seconds.",
+        "target": "<2s response time"
+      },
+      {
+        "id": "NFR3",
+        "attr": "Accessibility",
+        "desc": "The system shall be usable on standard web browsers without installation.",
+        "target": "Works on Chrome, Edge, Firefox"
+      },
+      {
+        "id": "NFR4",
+        "attr": "Usability",
+        "desc": "The system shall maintain user engagement for at least 20 minutes per session.",
+        "target": "≥70% session completion rate"
+      },
+      {
+        "id": "NFR5",
+        "desc": "The system shall protect participant data using privacy-focused design principles and comply with basic GDPR/KVKK data protection requirements.\n\n\n",
+        "attr": "Privacy / Data Protection",
+        "target": "100% of gameplay records are anonymised or pseudonymised, and no personally identifiable information is stored in gameplay logs."
+      }
+    ],
+    "gameDuration": "Total session duration is approximately 60 minutes: 10 minutes introduction and rule explanation, 35 minutes scenario gameplay across multiple project cases, 10 minutes reflection and discussion, and 5 minutes final feedback and assessment.",
+    "sessionSteps": [
+      {
+        "phase": "Introduction & Rules",
+        "duration": "10 min",
+        "facilitator": "Explain objectives, scoring, methodology basics",
+        "player": "Listen, ask questions",
+        "seq": 1,
+        "name": "Introduction & Briefing",
+        "description": "Players receive an overview of Agile and Waterfall methodologies, game objectives, scoring rules, and project constraints before gameplay begins."
+      },
+      {
+        "phase": "Scenario Analysis",
+        "duration": "20 min",
+        "facilitator": "Present scenario (requirements, risk, stakeholders)",
+        "player": "Analyse project conditions",
+        "name": "Scenario Analysis",
+        "description": "Players analyse project characteristics such as requirement stability, stakeholder involvement, project risk, and budget constraints before selecting methodologies.",
+        "seq": 2
+      },
+      {
+        "phase": "Decision Phase",
+        "duration": "15 min",
+        "facilitator": "Monitor gameplay",
+        "player": "Select methodology + actions",
+        "name": "Methodology Selection",
+        "description": "Players choose Agile or Waterfall methodologies and apply methodology-specific actions to maximise project success indicators.",
+        "seq": 3
+      },
+      {
+        "phase": "Resolution & Feedback",
+        "duration": "10 min",
+        "facilitator": "Show results + correct explanation",
+        "player": "Review outcome",
+        "seq": 4,
+        "name": "Dynamic Event Phase",
+        "description": "Unexpected project events such as requirement changes, stakeholder conflicts, delays, and budget risks dynamically alter gameplay conditions."
+      },
+      {
+        "phase": "Reflection",
+        "duration": "10 min",
+        "facilitator": "Ask justification questions",
+        "player": "Explain reasoning",
+        "seq": 5,
+        "name": "Reflection & Discussion",
+        "description": "Players discuss their decisions, compare strategies, and evaluate the effectiveness of methodology choices through collaborative reflection."
+      },
+      {
+        "phase": "Transition",
+        "duration": "5 min",
+        "facilitator": "Move to next scenario",
+        "player": "Prepare",
+        "seq": 6,
+        "name": "Feedback & Assessment",
+        "description": "The system provides performance analytics, scenario outcomes, learning feedback, and post-session evaluation results."
+      }
+    ],
+    "kpis": [
+      {
+        "level": "L1",
+        "metric": "Participant engagement and satisfaction level",
+        "method": "Post-session Likert-scale survey and usability feedback analysis",
+        "target": "At least 80% positive satisfaction score"
+      },
+      {
+        "level": "L2",
+        "metric": "Improvement in methodology selection knowledge",
+        "method": "Pre-test and delayed 48-hour post-test comparison",
+        "target": "At least 25% improvement in assessment scores"
+      },
+      {
+        "level": "L3",
+        "metric": "Behavioural transfer of project management decision-making skills",
+        "method": "Observation of later assignments and scenario-based evaluations",
+        "target": "At least 70% correct methodology application in later coursework"
+      },
+      {
+        "level": "L4",
+        "metric": "Overall academic performance and project success improvement",
+        "method": "Comparison of course outcomes with previous non-gamified cohorts",
+        "target": "Average performance improvement equivalent to at least one letter grade"
+      }
+    ],
+    "logPrivacy": "All gameplay data is anonymised using pseudonymisation techniques. \nPlayer identities are not directly stored in the system.\n\nNo sensitive or personal data (e.g., name, email, location) is collected.\n\nPlayer IDs cannot be linked to real identities without a separate key file, which is securely stored and accessible only to authorised academic staff.\n\nData is used strictly for educational assessment and system improvement purposes.\n\nLogs are retained for a maximum of 2 years for academic audit requirements, after which they are permanently deleted.\n\nPlayers have the right to request data access or deletion at any time.\n\nAll data handling complies with basic data protection and privacy principles.",
+    "dataCollectionPlan": "",
+    "tuslerRisks": [
+      {
+        "risk": "Players losing motivation due to repeated mistakes  \n",
+        "category": "Tiger",
+        "prob": "High",
+        "impact": "High",
+        "preventive": "Use adaptive difficulty and hint system  ",
+        "responsive": "Encourage retry with guidance and no harsh penalties  ",
+        "id": "R1"
+      },
+      {
+        "risk": "Players losing motivation due to repeated mistakes  \n",
+        "category": "Puppy",
+        "prob": "High",
+        "impact": "Low",
+        "preventive": "Use adaptive difficulty and hint system  ",
+        "responsive": "Encourage retry with guidance and no harsh penalties ",
+        "id": "R2"
+      },
+      {
+        "risk": "Technical issues (platform lag / crash)  ",
+        "category": "Alligator",
+        "prob": "Low",
+        "impact": "High",
+        "preventive": "Pre-session system testing  ",
+        "responsive": "Restart scenario or provide backup access  \n",
+        "id": "R3"
+      },
+      {
+        "risk": "Minor confusion about rules or interface  \n",
+        "category": "Kitten",
+        "prob": "Low",
+        "impact": "Low",
+        "preventive": "Simple UI and clear instructions  ",
+        "responsive": "Facilitator clarification during session  ",
+        "id": "R4"
+      },
+      {
+        "id": "R-01",
+        "category": "Tiger",
+        "prob": "High",
+        "impact": "High",
+        "mitigation": "Mandatory pre-game compliance training to mitigate role-confusion risk"
+      },
+      {
+        "id": "R-02",
+        "category": "Alligator",
+        "prob": "Low",
+        "impact": "High",
+        "mitigation": "Backup facilitator script"
+      },
+      {
+        "id": "R-03",
+        "category": "Puppy",
+        "prob": "High",
+        "impact": "Low",
+        "mitigation": "Tracked via pre/post quiz"
+      },
+      {
+        "id": "R-04",
+        "category": "Kitten",
+        "prob": "Low",
+        "impact": "Low",
+        "mitigation": "Standing technical support"
+      },
+      {
+        "id": "R-05",
+        "category": "Tiger",
+        "prob": "Medium",
+        "impact": "Medium",
+        "mitigation": "Periodic facilitator calibration sessions"
+      }
+    ],
+    "supportTeam": [
+      {
+        "role": "Game Lead / Facilitator",
+        "name": "Ahmet Kaya",
+        "resp": "Responsible for overall session management and learning outcomes  "
+      },
+      {
+        "role": "Technical Support",
+        "name": "Nameee",
+        "resp": "Handles platform issues and ensures system stability  \n"
+      },
+      {
+        "role": "Data Analyst / Scorekeeper",
+        "name": "Nameee",
+        "resp": "Tracks player performance, logs, and leaderboard updates  \n"
+      },
+      {
+        "role": "Community Manager",
+        "name": "Nameee",
+        "resp": "Moderates discussions and ensures respectful communication  "
+      }
+    ],
+    "facilitatorRole": "The facilitator acts as a guide, not a player.\n\nResponsibilities:\n- Explain game objectives and rules clearly at the beginning\n- Monitor time and manage scenario transitions\n- Answer rule-related questions (not strategy)\n- Ensure system runs properly\n- Lead reflection discussions after each scenario\n\nThe facilitator does NOT:\n- Reveal correct answers during gameplay\n- Influence player decisions\n- Interfere with scoring system",
+    "wf_dash": "Top nav: [Scenarios] [Progress] [Discussion] [Rewards] [Settings]\n\nHeader: Player ID | Level | XP | Progress %\n\nCenter:\nScenario cards:\n[Scenario Title | Difficulty | Status | Start Button]\n\nLeft:\nFilter by difficulty [Easy | Medium | Hard]\n\nRight:\nRecent feedback\nAchievements / badges",
+    "wf_asset": "Header: Scenario Title | Timer | Current Score\n\nMain:\nScenario description\nKey conditions:\n- Requirement stability\n- Risk level\n- Stakeholder involvement\n\nDecision panel:\n[Select Agile] [Select Waterfall]\n\nBottom:\nHints / feedback section",
+    "wf_portfolio": "Summary:\nAccuracy (%) | Completed Scenarios | Improvement Rate\n\nCharts:\nPerformance over time\nSuccess rate by scenario type\n\nInsights:\nSystem feedback (e.g., \"You struggle with dynamic scenarios\")\n\nRecommendations:\nSuggested next scenarios based on performance",
+    "inScope": "Compassion model approach with no punitive scoring. Failure is treated as a guided learning opportunity supported by reflection, feedback, retry mechanics, and facilitator discussion. The project scope includes scenario-based methodology selection, performance tracking, collaborative analysis, adaptive feedback systems, and educational assessment features focused on Agile and Waterfall decision-making skills.",
+    "outScope": "Real-time integration with external project management tools Advanced AI-driven adaptive gameplay Multiplayer online real-time system Full-scale enterprise project tracking features",
+    "whyMotivation": "The primary motivation of this gamification proposal is to help students bridge the gap between theoretical knowledge and practical project management decision-making. Many students can memorise Agile and Waterfall concepts but struggle to apply them correctly in realistic situations. The game encourages active learning through scenario-based interaction, reflection, experimentation, and collaborative discussion. By combining challenge, feedback, autonomy, and progression systems, the design aims to increase engagement, critical thinking, and long-term retention of project management principles.",
+    "howEthics": "The system follows a compassion model approach that prioritises learning over punishment. No punitive scoring is applied, and failure is treated as a learning opportunity supported by feedback and reflection. All gameplay logs are anonymised using pseudonymisation techniques and handled according to privacy and data protection principles. Participation data is used only for educational evaluation and system improvement purposes. The game design also supports inclusivity, accessibility, fairness, and respectful communication between participants.",
+    "_extensionFields": {
+      "step": 12,
+      "totalSteps": 12,
+      "projectType": "Simulation",
+      "teamName": "PM-Gamer",
+      "proposer": "Ahmet",
+      "sampleSize": "30",
+      "deliverableAreas": [
+        "SDLC Phase Manager",
+        "Agile/Scrum Sprint Simulator"
+      ],
+      "playerTypes": {
+        "achiever": 25,
+        "explorer": 25,
+        "socialiser": 25,
+        "killer": 25
+      },
+      "sixDim": {
+        "what": "Points and levels are used to provide continuous feedback and reinforce learning progress aligned with SDT Competence. Quests and challenges represent different project scenarios where players must select appropriate methodologies and actions. Immediate feedback ensures that players understand the impact of their decisions in real time. Leaderboards are used in a non-punitive way to encourage performance comparison without discouraging lower-performing students. Roles and characters simulate real-world project roles, enhancing immersion and contextual learning.",
+        "why": "Player motivation is primarily driven by intrinsic factors aligned with Self-Determination Theory (SDT). Autonomy is supported by allowing players to choose methodologies and strategies. Competence is reinforced through progressive challenges and feedback that improves decision-making skills. Relatedness is encouraged through team-based comparison and shared reflection. Additionally, elements from HEXAD are integrated to address different player types, ensuring balanced engagement across achievers, socialisers, and explorers.",
+        "who": "Participation in the gamified system is voluntary and does not directly affect academic grades. All collected data is anonymised and used only for educational improvement and analysis purposes. The system avoids manipulative reward structures and does not penalise failure; instead, it provides constructive feedback to support learning. Leaderboards are designed to emphasise personal improvement rather than competition to prevent discouragement. The design ensures inclusivity by accommodating different player types and learning styles.",
+        "when": "The gamification is implemented during weekly class or lab sessions, typically lasting 60–90 minutes. Each session represents a complete gameplay cycle where players engage with one or more project scenarios. The pacing is designed to gradually increase complexity, starting with simple and predictable scenarios and progressing to more complex and dynamic situations. This ensures sustained engagement and progressive learning.",
+        "how": "To prevent pointsification, points are only awarded based on correct methodology selection and meaningful decision-making, not passive participation. The system avoids punishing failure by providing constructive feedback instead of negative scoring. Leaderboards are designed to be non-exclusionary by focusing on improvement rather than ranking alone. Engagement addiction is avoided by limiting session duration and avoiding exploitative reward patterns. Ethical considerations include voluntary participation, anonymised data collection, and ensuring that gameplay does not negatively impact academic grading.",
+        "where": "Browser-based web application developed using Python (Streamlit) or a simple web interface, accessible during class sessions. Optional use of projected dashboard for facilitator guidance."
+      },
+      "narrativeArc": "Hero's Journey (departure → trials → return)",
+      "characters": "Players take the role of Project Managers competing to successfully deliver projects. They must analyse project conditions, choose the appropriate methodology, and respond to dynamic challenges such as changing requirements, risks, and stakeholder demands.",
+      "storyWorld": "The game world is a simulated corporate environment where multiple projects are running simultaneously. Each project presents unique constraints such as requirement volatility, risk level, and stakeholder complexity. Players must navigate these conditions strategically, making decisions that directly impact project success.",
+      "introText": "Welcome to Agile vs Waterfall Arena! Your objective is to successfully manage project scenarios by selecting the most appropriate project management methodology (Agile or Waterfall) based on project conditions.\n\nThis game simulates real-world project environments with varying levels of requirement stability, risk, and stakeholder complexity. The game consists of 4 rounds, each representing a different project scenario.\n\nIn each round, you will analyse the scenario, choose a methodology, and apply strategic decisions. You will have limited time to complete each round.\n\nYour performance will be evaluated based on:\n- Correct identification of project characteristics\n- Selection of appropriate methodology\n- Quality of decision justification\n- Overall project success (time, budget, quality, risk)\n\nYou succeed when you complete projects within constraints and demonstrate strong decision-making skills. There are no harsh penalties — the goal is learning and improvement.",
+      "preGameSetup": "Environment Configuration:\nA browser-based simulation platform is pre-loaded with multiple project scenarios and decision options.\n\nMaterials:\nPlayers access the system via a web link. Optional printed summaries of scenarios can be provided.\n\nInitial Log:\nThe system logs player entry and tracks decisions, scores, and progress.\n\nFacilitator Setup:\nEnsure platform accessibility, scenario readiness, and projection for shared discussion.\n\nGame Setup:\nEach player starts with equal project resources (time, budget, quality baseline, risk level).",
+      "scoringSystem": {
+        "basis": "+30 points for correctly identifying scenario characteristics\n+40 points for selecting the appropriate methodology\n+20 points for maintaining project quality above threshold\n+10 points for completing within time and budget",
+        "bonuses": "+10 points for optimal strategy (best possible decision for given scenario)\n+10 points for correct decision justification during reflection phase\n+5 points for consistent performance across multiple rounds",
+        "penalties": "No harsh penalties are applied. Incorrect decisions do not result in heavy score reduction. Instead, they trigger guided feedback explaining the correct methodology and reasoning. Minor score reduction may apply (-5 points) to indicate suboptimal decisions, but the focus remains on learning and improvement.",
+        "badges": "Analyst Badge — correctly identifies scenario characteristics\nMethodology Master — selects correct methodology in 3 consecutive scenarios\nAdaptive Thinker — successfully handles dynamic (changing) scenarios\nStrategic Planner — maintains balance across time, budget, and quality\nProject Champion — achieves highest overall performance score"
+      },
+      "socialFeatures": {
+        "forums": true,
+        "clubs": true,
+        "leaderboard": true,
+        "notifications": true,
+        "analytics": true,
+        "mentoring": true,
+        "collab": true
+      },
+      "rewardTiers": {
+        "elite": "Methodology Master Badge — awarded for 3 consecutive correct methodology decisions\n\nAdaptive Strategist — successfully handles dynamic scenarios with changing requirements\n\nProject Champion — achieves highest performance score across all scenarios\n\nUnlock Advanced Scenarios — access to more complex and time-constrained projects",
+        "professional": "XP (Experience Points) System — players earn points from each activity\n\nLevel Progression — Beginner → Intermediate → Advanced\n\nSkill Feedback Reports — personalised insights on strengths and weaknesses\n\nScenario Unlock System — new scenarios unlocked based on performance",
+        "access": "Participation Points — awarded for completing scenarios\n\nReflection Bonus — extra points for explaining decisions\n\nRetry Tokens — allows players to replay scenarios without penalty\n\nHint Tokens — unlock guidance for difficult scenarios"
+      },
+      "executionLog": [],
+      "leaderboardConfig": {
+        "categories": []
+      },
+      "risks": [],
+      "kirkpatrick": {
+        "l1": "Students report engagement and satisfaction  \nKPI: ≥75% positive feedback in post-session survey  ",
+        "l2": "Students improve methodology selection accuracy  \nKPI: ≥25% increase between pre-test and post-test  ",
+        "l3": "Students correctly apply methodology in later coursework  \nKPI: ≥70% correct methodology selection in assignments 4 weeks later  ",
+        "l4": "Overall academic performance improves  \nKPI: Average course grade improvement ≥ 0.5 letter grade"
+      },
+      "futureEnhancements": [
+        "Introduce adaptive scenario complexity based on player performance  ",
+        "Add AI-assisted feedback for deeper explanation of decisions  ",
+        "Expand scenario library with real-world case studies  ",
+        "Integrate with LMS for automated grading and tracking"
+      ],
+      "dataCollection": "Quantitative Analysis:\nLikert-scale and test scores analysed using descriptive statistics (mean, variance, improvement rate).\nQualitative Analysis:\nThematic coding applied to interviews, focus groups, and open-ended responses.\nTriangulation:\nMultiple data sources combined (analytics + surveys + interviews) to ensure validity and reliability.\nFeedback Loop:\nMonthly insights shared with stakeholders → iterative improvements applied.",
+      "continuousImprovement": "The system will be continuously improved based on collected data, player performance, and feedback to ensure long-term learning effectiveness.",
+      "appendices": [
+        "Glossary of Terms",
+        "Game Component Inventory",
+        "Sample Game Session Log",
+        "FR/NFR Traceability Matrix",
+        "Consent & Privacy Forms",
+        "Change Log",
+        "Survey Instruments"
+      ],
+      "timeline": [],
+      "baselineEngagement": "30%",
+      "targetEngagement": "≥75%  ",
+      "baselineScore": "55/100  ",
+      "attritionTarget": "≤10% ",
+      "transferTarget": " ≥70% ",
+      "resultsKPI": "≥ 0.5 letter  ",
+      "analyticsplatform": "Game execution logs + LMS (e.g., Moodle) integration",
+      "usedRefs": {},
+      "gamePurpose": "",
+      "gameSubject": "",
+      "gameMethod": "",
+      "gameMeasurement": "",
+      "gamePlayers": "",
+      "gamePoints": "",
+      "gameAchievements": "",
+      "gameBadges": "",
+      "dur_preDesign": "2 weeks",
+      "dur_design": "3 weeks",
+      "dur_impl": "4 weeks",
+      "dur_ops": "8 weeks",
+      "dur_post": "2 weeks",
+      "deliverableJust": "The selected deliverable areas focus on simulating real-world project management environments where students must choose and apply appropriate methodologies. Agile/Scrum Sprint Simulator enables iterative decision-making under dynamic conditions, while SDLC Phase Manager supports structured planning scenarios aligned with Waterfall methodology. These areas directly address the learning objective of selecting suitable methodologies based on project characteristics and constraints.",
+      "platform": "Browser-based web application built using Python (Streamlit v1.x) or a lightweight web framework. The system will run locally or be hosted on a cloud platform (e.g., Render / Heroku alternative) for easy access. No installation is required; players access the simulation via a web browser during class sessions. A facilitator dashboard may be displayed via projector to guide gameplay and discussion.",
+      "narrativeEvolution": "Week 1–2: Introduction and familiarisation with Agile and Waterfall concepts.\nWeek 3–6: Increasing complexity with dynamic project scenarios and decision-making challenges.\nWeek 7–10: Competitive phase where players optimise strategies across multiple scenarios.\nWeek 11–12: Final evaluation and reflection, analysing decisions and outcomes.",
+      "socialRationale": "Social interaction is intentionally designed to support multiple motivational frameworks.\n\nFrom a Self-Determination Theory (SDT) perspective, social features enhance relatedness by enabling collaboration, discussion, and peer learning. Study clubs and mentoring systems allow students to share strategies and support each other, reflecting real-world project environments.\n\nFrom a HEXAD perspective, Socialisers are engaged through forums and group discussions, Achievers through leaderboard comparison, and Philanthropists through mentoring and helping others.\n\nFrom an Octalysis perspective, Core Drive 5 (Social Influence & Relatedness) is activated through peer comparison, feedback, and shared experiences. Core Drive 2 (Accomplishment) is reinforced through leaderboard positioning and visible performance metrics.\n\nThese features are not included for engagement alone, but to create structured social learning that improves reflection, decision-making, and knowledge transfer.",
+      "communityStandards": "All interactions must remain respectful, constructive, and academically focused.\n\nCriticism must target decisions and strategies, not individuals. Personal attacks, harassment, or exclusionary behaviour are strictly prohibited.\n\nAll social features are moderated automatically (keyword filtering) and by instructors to ensure a safe learning environment.\n\nStudents are encouraged to provide evidence-based feedback, justify their decisions, and engage in reflective discussion.\n\nRepeated violations result in temporary restriction from social features.\n\nThis policy ensures that social interaction enhances learning rather than creating pressure or negative competition.",
+      "currencyName": "Credits",
+      "pricingModel": "Social and reward systems are explicitly designed to support motivational theories (SDT, HEXAD, Octalysis), ensuring that engagement is driven by meaningful interaction, not superficial gamification elements.",
+      "adaptiveDifficulty": "The system adapts difficulty based on player performance metrics:\n\n- If a player repeatedly selects incorrect methodologies → \n  the system provides hints and simplified scenarios (e.g., clearer project conditions).\n\n- If a player performs consistently well →\n  more complex scenarios are introduced (mixed conditions, time pressure, ambiguous requirements).\n\n- Time limits are dynamically adjusted:\n  more time for struggling players, less time for advanced players.\n\nThis adaptation is rule-based and transparent to ensure fairness and feasibility.",
+      "personalisation": "Personalised Feedback System:\nAfter each scenario, players receive feedback explaining why their decision was correct or incorrect.\n\nWeakness Detection:\nThe system identifies patterns (e.g., always choosing Agile incorrectly) and highlights learning gaps.\n\nScenario Recommendation:\nPlayers are guided towards scenarios that target their weak areas.\n\nOptional Customisation:\n- Avatar selection (cosmetic only)\n- UI preferences (dark/light mode)\n- Notification settings\n\nNo manipulation or behavioural exploitation is used.",
+      "lbCategories": [
+        "Absolute Score",
+        "Analytical Contribution",
+        "Consistency Award",
+        "Improvement Rate"
+      ],
+      "lbVisibility": "Public (opt-out available)",
+      "lbReset": "Seasonal (per sprint)",
+      "dcMethods": {
+        "dc_auto": true,
+        "dc_survey": true,
+        "dc_forum": true,
+        "dc_focus": true,
+        "dc_interview": true,
+        "dc_log": true,
+        "dc_prepost": true
+      }
+    }
+  },
+  "_audit": {
+    "sysLog": [
+      {
+        "ts": "2026-05-12T11:34:38.626Z",
+        "level": "L2",
+        "msg": "GPPT v2.0.10 booting",
+        "ctx": {}
+      },
+      {
+        "ts": "2026-05-12T11:34:38.641Z",
+        "level": "L2",
+        "msg": "Ontology loaded: 38 Components / 5 Bonuses / 3 Penalties",
+        "ctx": {}
+      },
+      {
+        "ts": "2026-05-12T11:34:38.644Z",
+        "level": "L2",
+        "msg": "Recompute: 0.0/800 in 1.2ms (119 steps)",
+        "ctx": {
+          "trigger": "boot"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:34:38.646Z",
+        "level": "L2",
+        "msg": "GPPT v2.0.10 ready",
+        "ctx": {
+          "scoringMethods": 40
+        }
+      },
+      {
+        "ts": "2026-05-12T11:34:45.720Z",
+        "level": "L1",
+        "msg": "Import: file picker file selected: gppt_v2_0_10_proposal_2026-05-12 (3).json (205529 bytes)",
+        "ctx": {
+          "filename": "gppt_v2_0_10_proposal_2026-05-12 (3).json",
+          "size": 205529
+        }
+      },
+      {
+        "ts": "2026-05-12T11:34:45.720Z",
+        "level": "L1",
+        "msg": "Import: source resolved",
+        "ctx": {
+          "sourcePath": "file-picker",
+          "sourceFilename": "gppt_v2_0_10_proposal_2026-05-12 (3).json",
+          "txtLen": 205215
+        }
+      },
+      {
+        "ts": "2026-05-12T11:34:45.722Z",
+        "level": "L1",
+        "msg": "Import: parsed JSON · 43 filled / 3 empty fields",
+        "ctx": {
+          "bytes": 205215,
+          "topLevelKeys": [
+            "gppt_version",
+            "exported_at",
+            "state",
+            "_audit"
+          ],
+          "hasNestedState": true,
+          "gpptVersion": "2.0.0",
+          "incomingFilledCount": 43,
+          "incomingEmptyCount": 3,
+          "incomingFilledFields": [
+            "ideaBrief",
+            "projectTitle",
+            "organisation",
+            "courseCode",
+            "domain",
+            "deliverableArea",
+            "proposalDate",
+            "startDate",
+            "teamMembers",
+            "problemStatement"
+          ],
+          "sourcePath": "file-picker",
+          "sourceFilename": "gppt_v2_0_10_proposal_2026-05-12 (3).json"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:34:45.722Z",
+        "level": "L3",
+        "msg": "Import accepted (imported) · 0 mismatch · 0 unknown · 0 reductions · 45 ok",
+        "ctx": {
+          "source": "imported",
+          "fileSize": 205215,
+          "ok": true,
+          "mismatches": [],
+          "unknownKeys": [],
+          "reductions": [],
+          "acceptedCount": 45
+        }
+      },
+      {
+        "ts": "2026-05-12T11:34:45.723Z",
+        "level": "L3",
+        "msg": "Imported: 42/45 fields filled (93.3%)",
+        "ctx": {
+          "fields": 45,
+          "filledCount": 42,
+          "emptyCount": 3,
+          "filledSample": "ideaBrief(object=5), projectTitle(string=53), organisation(string=26), courseCode(string=7), domain(string=2), deliverableArea(string=48), proposalDate(string=10), startDate(string=10)",
+          "emptySample": "successCriteria, dataCollectionPlan, gamePhases"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:34:45.724Z",
+        "level": "L2",
+        "msg": "Recompute: 782.2/800 in 1.2ms (130 steps)",
+        "ctx": {
+          "trigger": "import"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:34:45.725Z",
+        "level": "L2",
+        "msg": "Post-import recompute: 782.2/800",
+        "ctx": {
+          "total": 782.2,
+          "dimScores": {
+            "D1": 85,
+            "D2": 100,
+            "D3": 99.7,
+            "D4": 100,
+            "D5": 97.5,
+            "D6": 100,
+            "D7": 100,
+            "D8": 100
+          },
+          "stateFilledCount": 42,
+          "stateEmptySample": "successCriteria, dataCollectionPlan, gamePhases"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:05.857Z",
+        "level": "L2",
+        "msg": "Recompute: 782.2/800 in 1.2ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:06.539Z",
+        "level": "L2",
+        "msg": "Recompute: 787.2/800 in 0.7ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:06.883Z",
+        "level": "L2",
+        "msg": "Recompute: 787.2/800 in 0.6ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:09.929Z",
+        "level": "L2",
+        "msg": "Recompute: 792.2/800 in 0.7ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:10.263Z",
+        "level": "L2",
+        "msg": "Recompute: 792.2/800 in 0.4ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:13.973Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.5ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:14.449Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.4ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:17.840Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.5ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:18.625Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.4ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:22.070Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.4ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:23.011Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.4ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:26.113Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.4ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:27.016Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.3ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:31.522Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.5ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:32.180Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.5ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:36.170Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.5ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:36.615Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.3ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:40.624Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.4ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:41.104Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.3ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      },
+      {
+        "ts": "2026-05-12T11:35:43.945Z",
+        "level": "L2",
+        "msg": "Recompute: 797.2/800 in 0.3ms (130 steps)",
+        "ctx": {
+          "trigger": "user"
+        }
+      }
+    ],
+    "changeLog": [
+      {
+        "ts": "2026-05-12T11:34:45.722Z",
+        "path": "_extensionFields",
+        "oldVal": null,
+        "newVal": {
+          "step": 12,
+          "totalSteps": 12,
+          "projectType": "Simulation",
+          "teamName": "PM-Gamer",
+          "proposer": "Ahmet",
+          "sampleSize": "30",
+          "deliverableAreas": [
+            "SDLC Phase Manager",
+            "Agile/Scrum Sprint Simulator"
+          ],
+          "playerTypes": {
+            "achiever": 25,
+            "explorer": 25,
+            "socialiser": 25,
+            "killer": 25
+          },
+          "sixDim": {
+            "what": "Points and levels are used to provide continuous feedback and reinforce learning progress aligned with SDT Competence. Quests and challenges represent different project scenarios where players must select appropriate methodologies and actions. Immediate feedback ensures that players understand the impact of their decisions in real time. Leaderboards are used in a non-punitive way to encourage performance comparison without discouraging lower-performing students. Roles and characters simulate real-world project roles, enhancing immersion and contextual learning.",
+            "why": "Player motivation is primarily driven by intrinsic factors aligned with Self-Determination Theory (SDT). Autonomy is supported by allowing players to choose methodologies and strategies. Competence is reinforced through progressive challenges and feedback that improves decision-making skills. Relatedness is encouraged through team-based comparison and shared reflection. Additionally, elements from HEXAD are integrated to address different player types, ensuring balanced engagement across achievers, socialisers, and explorers.",
+            "who": "Participation in the gamified system is voluntary and does not directly affect academic grades. All collected data is anonymised and used only for educational improvement and analysis purposes. The system avoids manipulative reward structures and does not penalise failure; instead, it provides constructive feedback to support learning. Leaderboards are designed to emphasise personal improvement rather than competition to prevent discouragement. The design ensures inclusivity by accommodating different player types and learning styles.",
+            "when": "The gamification is implemented during weekly class or lab sessions, typically lasting 60–90 minutes. Each session represents a complete gameplay cycle where players engage with one or more project scenarios. The pacing is designed to gradually increase complexity, starting with simple and predictable scenarios and progressing to more complex and dynamic situations. This ensures sustained engagement and progressive learning.",
+            "how": "To prevent pointsification, points are only awarded based on correct methodology selection and meaningful decision-making, not passive participation. The system avoids punishing failure by providing constructive feedback instead of negative scoring. Leaderboards are designed to be non-exclusionary by focusing on improvement rather than ranking alone. Engagement addiction is avoided by limiting session duration and avoiding exploitative reward patterns. Ethical considerations include voluntary participation, anonymised data collection, and ensuring that gameplay does not negatively impact academic grading.",
+            "where": "Browser-based web application developed using Python (Streamlit) or a simple web interface, accessible during class sessions. Optional use of projected dashboard for facilitator guidance."
+          },
+          "narrativeArc": "Hero's Journey (departure → trials → return)",
+          "characters": "Players take the role of Project Managers competing to successfully deliver projects. They must analyse project conditions, choose the appropriate methodology, and respond to dynamic challenges such as changing requirements, risks, and stakeholder demands.",
+          "storyWorld": "The game world is a simulated corporate environment where multiple projects are running simultaneously. Each project presents unique constraints such as requirement volatility, risk level, and stakeholder complexity. Players must navigate these conditions strategically, making decisions that directly impact project success.",
+          "introText": "Welcome to Agile vs Waterfall Arena! Your objective is to successfully manage project scenarios by selecting the most appropriate project management methodology (Agile or Waterfall) based on project conditions.\n\nThis game simulates real-world project environments with varying levels of requirement stability, risk, and stakeholder complexity. The game consists of 4 rounds, each representing a different project scenario.\n\nIn each round, you will analyse the scenario, choose a methodology, and apply strategic decisions. You will have limited time to complete each round.\n\nYour performance will be evaluated based on:\n- Correct identification of project characteristics\n- Selection of appropriate methodology\n- Quality of decision justification\n- Overall project success (time, budget, quality, risk)\n\nYou succeed when you complete projects within constraints and demonstrate strong decision-making skills. There are no harsh penalties — the goal is learning and improvement.",
+          "preGameSetup": "Environment Configuration:\nA browser-based simulation platform is pre-loaded with multiple project scenarios and decision options.\n\nMaterials:\nPlayers access the system via a web link. Optional printed summaries of scenarios can be provided.\n\nInitial Log:\nThe system logs player entry and tracks decisions, scores, and progress.\n\nFacilitator Setup:\nEnsure platform accessibility, scenario readiness, and projection for shared discussion.\n\nGame Setup:\nEach player starts with equal project resources (time, budget, quality baseline, risk level).",
+          "scoringSystem": {
+            "basis": "+30 points for correctly identifying scenario characteristics\n+40 points for selecting the appropriate methodology\n+20 points for maintaining project quality above threshold\n+10 points for completing within time and budget",
+            "bonuses": "+10 points for optimal strategy (best possible decision for given scenario)\n+10 points for correct decision justification during reflection phase\n+5 points for consistent performance across multiple rounds",
+            "penalties": "No harsh penalties are applied. Incorrect decisions do not result in heavy score reduction. Instead, they trigger guided feedback explaining the correct methodology and reasoning. Minor score reduction may apply (-5 points) to indicate suboptimal decisions, but the focus remains on learning and improvement.",
+            "badges": "Analyst Badge — correctly identifies scenario characteristics\nMethodology Master — selects correct methodology in 3 consecutive scenarios\nAdaptive Thinker — successfully handles dynamic (changing) scenarios\nStrategic Planner — maintains balance across time, budget, and quality\nProject Champion — achieves highest overall performance score"
+          },
+          "socialFeatures": {
+            "forums": true,
+            "clubs": true,
+            "leaderboard": true,
+            "notifications": true,
+            "analytics": true,
+            "mentoring": true,
+            "collab": true
+          },
+          "rewardTiers": {
+            "elite": "Methodology Master Badge — awarded for 3 consecutive correct methodology decisions\n\nAdaptive Strategist — successfully handles dynamic scenarios with changing requirements\n\nProject Champion — achieves highest performance score across all scenarios\n\nUnlock Advanced Scenarios — access to more complex and time-constrained projects",
+            "professional": "XP (Experience Points) System — players earn points from each activity\n\nLevel Progression — Beginner → Intermediate → Advanced\n\nSkill Feedback Reports — personalised insights on strengths and weaknesses\n\nScenario Unlock System — new scenarios unlocked based on performance",
+            "access": "Participation Points — awarded for completing scenarios\n\nReflection Bonus — extra points for explaining decisions\n\nRetry Tokens — allows players to replay scenarios without penalty\n\nHint Tokens — unlock guidance for difficult scenarios"
+          },
+          "executionLog": [],
+          "leaderboardConfig": {
+            "categories": []
+          },
+          "risks": [],
+          "kirkpatrick": {
+            "l1": "Students report engagement and satisfaction  \nKPI: ≥75% positive feedback in post-session survey  ",
+            "l2": "Students improve methodology selection accuracy  \nKPI: ≥25% increase between pre-test and post-test  ",
+            "l3": "Students correctly apply methodology in later coursework  \nKPI: ≥70% correct methodology selection in assignments 4 weeks later  ",
+            "l4": "Overall academic performance improves  \nKPI: Average course grade improvement ≥ 0.5 letter grade"
+          },
+          "futureEnhancements": [
+            "Introduce adaptive scenario complexity based on player performance  ",
+            "Add AI-assisted feedback for deeper explanation of decisions  ",
+            "Expand scenario library with real-world case studies  ",
+            "Integrate with LMS for automated grading and tracking"
+          ],
+          "dataCollection": "Quantitative Analysis:\nLikert-scale and test scores analysed using descriptive statistics (mean, variance, improvement rate).\nQualitative Analysis:\nThematic coding applied to interviews, focus groups, and open-ended responses.\nTriangulation:\nMultiple data sources combined (analytics + surveys + interviews) to ensure validity and reliability.\nFeedback Loop:\nMonthly insights shared with stakeholders → iterative improvements applied.",
+          "continuousImprovement": "The system will be continuously improved based on collected data, player performance, and feedback to ensure long-term learning effectiveness.",
+          "appendices": [
+            "Glossary of Terms",
+            "Game Component Inventory",
+            "Sample Game Session Log",
+            "FR/NFR Traceability Matrix",
+            "Consent & Privacy Forms",
+            "Change Log",
+            "Survey Instruments"
+          ],
+          "timeline": [],
+          "baselineEngagement": "30%",
+          "targetEngagement": "≥75%  ",
+          "baselineScore": "55/100  ",
+          "attritionTarget": "≤10% ",
+          "transferTarget": " ≥70% ",
+          "resultsKPI": "≥ 0.5 letter  ",
+          "analyticsplatform": "Game execution logs + LMS (e.g., Moodle) integration",
+          "usedRefs": {},
+          "gamePurpose": "",
+          "gameSubject": "",
+          "gameMethod": "",
+          "gameMeasurement": "",
+          "gamePlayers": "",
+          "gamePoints": "",
+          "gameAchievements": "",
+          "gameBadges": "",
+          "dur_preDesign": "2 weeks",
+          "dur_design": "3 weeks",
+          "dur_impl": "4 weeks",
+          "dur_ops": "8 weeks",
+          "dur_post": "2 weeks",
+          "deliverableJust": "The selected deliverable areas focus on simulating real-world project management environments where students must choose and apply appropriate methodologies. Agile/Scrum Sprint Simulator enables iterative decision-making under dynamic conditions, while SDLC Phase Manager supports structured planning scenarios aligned with Waterfall methodology. These areas directly address the learning objective of selecting suitable methodologies based on project characteristics and constraints.",
+          "platform": "Browser-based web application built using Python (Streamlit v1.x) or a lightweight web framework. The system will run locally or be hosted on a cloud platform (e.g., Render / Heroku alternative) for easy access. No installation is required; players access the simulation via a web browser during class sessions. A facilitator dashboard may be displayed via projector to guide gameplay and discussion.",
+          "narrativeEvolution": "Week 1–2: Introduction and familiarisation with Agile and Waterfall concepts.\nWeek 3–6: Increasing complexity with dynamic project scenarios and decision-making challenges.\nWeek 7–10: Competitive phase where players optimise strategies across multiple scenarios.\nWeek 11–12: Final evaluation and reflection, analysing decisions and outcomes.",
+          "socialRationale": "Social interaction is intentionally designed to support multiple motivational frameworks.\n\nFrom a Self-Determination Theory (SDT) perspective, social features enhance relatedness by enabling collaboration, discussion, and peer learning. Study clubs and mentoring systems allow students to share strategies and support each other, reflecting real-world project environments.\n\nFrom a HEXAD perspective, Socialisers are engaged through forums and group discussions, Achievers through leaderboard comparison, and Philanthropists through mentoring and helping others.\n\nFrom an Octalysis perspective, Core Drive 5 (Social Influence & Relatedness) is activated through peer comparison, feedback, and shared experiences. Core Drive 2 (Accomplishment) is reinforced through leaderboard positioning and visible performance metrics.\n\nThese features are not included for engagement alone, but to create structured social learning that improves reflection, decision-making, and knowledge transfer.",
+          "communityStandards": "All interactions must remain respectful, constructive, and academically focused.\n\nCriticism must target decisions and strategies, not individuals. Personal attacks, harassment, or exclusionary behaviour are strictly prohibited.\n\nAll social features are moderated automatically (keyword filtering) and by instructors to ensure a safe learning environment.\n\nStudents are encouraged to provide evidence-based feedback, justify their decisions, and engage in reflective discussion.\n\nRepeated violations result in temporary restriction from social features.\n\nThis policy ensures that social interaction enhances learning rather than creating pressure or negative competition.",
+          "currencyName": "Credits",
+          "pricingModel": "Social and reward systems are explicitly designed to support motivational theories (SDT, HEXAD, Octalysis), ensuring that engagement is driven by meaningful interaction, not superficial gamification elements.",
+          "adaptiveDifficulty": "The system adapts difficulty based on player performance metrics:\n\n- If a player repeatedly selects incorrect methodologies → \n  the system provides hints and simplified scenarios (e.g., clearer project conditions).\n\n- If a player performs consistently well →\n  more complex scenarios are introduced (mixed conditions, time pressure, ambiguous requirements).\n\n- Time limits are dynamically adjusted:\n  more time for struggling players, less time for advanced players.\n\nThis adaptation is rule-based and transparent to ensure fairness and feasibility.",
+          "personalisation": "Personalised Feedback System:\nAfter each scenario, players receive feedback explaining why their decision was correct or incorrect.\n\nWeakness Detection:\nThe system identifies patterns (e.g., always choosing Agile incorrectly) and highlights learning gaps.\n\nScenario Recommendation:\nPlayers are guided towards scenarios that target their weak areas.\n\nOptional Customisation:\n- Avatar selection (cosmetic only)\n- UI preferences (dark/light mode)\n- Notification settings\n\nNo manipulation or behavioural exploitation is used.",
+          "lbCategories": [
+            "Absolute Score",
+            "Analytical Contribution",
+            "Consistency Award",
+            "Improvement Rate"
+          ],
+          "lbVisibility": "Public (opt-out available)",
+          "lbReset": "Seasonal (per sprint)",
+          "dcMethods": {
+            "dc_auto": true,
+            "dc_survey": true,
+            "dc_forum": true,
+            "dc_focus": true,
+            "dc_interview": true,
+            "dc_log": true,
+            "dc_prepost": true
+          }
+        },
+        "source": "import_with_extensions"
+      },
+      {
+        "ts": "2026-05-12T11:35:05.603Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:06.287Z",
+        "path": "successCriteria[0]",
+        "oldVal": "",
+        "newVal": "At least 70% of participants correctly select the appropriate project management methodology based on scenario conditions.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:06.629Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:09.676Z",
+        "path": "successCriteria[1]",
+        "oldVal": "",
+        "newVal": "Average methodology selection accuracy increases by at least 25% between pre-test and post-test assessments.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:10.011Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:13.720Z",
+        "path": "successCriteria[2]",
+        "oldVal": "",
+        "newVal": "At least 80% of participants successfully complete all project simulation scenarios within the allocated session time.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:14.196Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:17.588Z",
+        "path": "successCriteria[3]",
+        "oldVal": "",
+        "newVal": "Decision-making performance related to project constraints (time, budget, quality, and risk) improves by at least 20% across multiple rounds.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:18.372Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:21.818Z",
+        "path": "successCriteria[4]",
+        "oldVal": "",
+        "newVal": "At least 75% of participants correctly identify requirement volatility and stakeholder complexity during scenario analysis.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:22.756Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:25.861Z",
+        "path": "successCriteria[5]",
+        "oldVal": "",
+        "newVal": "Average post-session project management assessment scores improve by at least 30% compared to baseline results.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:26.764Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:31.270Z",
+        "path": "successCriteria[6]",
+        "oldVal": "",
+        "newVal": "At least 70% of participants provide evidence-based justifications for their methodology choices during reflection activities.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:31.927Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:35.919Z",
+        "path": "successCriteria[7]",
+        "oldVal": "",
+        "newVal": "More than 80% of participants actively participate in collaborative discussion and peer-feedback activities during gameplay sessions.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:36.363Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:40.372Z",
+        "path": "successCriteria[8]",
+        "oldVal": "",
+        "newVal": "At least 85% of participants report improved confidence in applying Agile and Waterfall methodologies to real-world project cases.",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:40.851Z",
+        "path": "successCriteria[+]",
+        "oldVal": null,
+        "newVal": "",
+        "source": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:43.695Z",
+        "path": "successCriteria[9]",
+        "oldVal": "",
+        "newVal": "Course performance related to project management case-study questions improves by at least one letter-grade equivalent after implementation of the gamification system.",
+        "source": "user"
+      }
+    ],
+    "lastEvaluation": {
+      "totalScore": 797.2,
+      "dimensionScores": {
+        "D1": {
+          "dim": "D1",
+          "componentSum": 100,
+          "bonus": 5,
+          "penalty": 0,
+          "raw": 105,
+          "score": 100,
+          "componentCount": 4
+        },
+        "D2": {
+          "dim": "D2",
+          "componentSum": 100,
+          "bonus": 0,
+          "penalty": 0,
+          "raw": 100,
+          "score": 100,
+          "componentCount": 5
+        },
+        "D3": {
+          "dim": "D3",
+          "componentSum": 99.7,
+          "bonus": 0,
+          "penalty": 0,
+          "raw": 99.7,
+          "score": 99.7,
+          "componentCount": 4
+        },
+        "D4": {
+          "dim": "D4",
+          "componentSum": 100,
+          "bonus": 5,
+          "penalty": 0,
+          "raw": 105,
+          "score": 100,
+          "componentCount": 6
+        },
+        "D5": {
+          "dim": "D5",
+          "componentSum": 97.5,
+          "bonus": 0,
+          "penalty": 0,
+          "raw": 97.5,
+          "score": 97.5,
+          "componentCount": 7
+        },
+        "D6": {
+          "dim": "D6",
+          "componentSum": 100,
+          "bonus": 0,
+          "penalty": 0,
+          "raw": 100,
+          "score": 100,
+          "componentCount": 4
+        },
+        "D7": {
+          "dim": "D7",
+          "componentSum": 100,
+          "bonus": 15,
+          "penalty": 0,
+          "raw": 115,
+          "score": 100,
+          "componentCount": 3
+        },
+        "D8": {
+          "dim": "D8",
+          "componentSum": 100,
+          "bonus": 0,
+          "penalty": 0,
+          "raw": 100,
+          "score": 100,
+          "componentCount": 5
+        }
+      },
+      "evaluationId": "eval_mp2k1361",
+      "evaluatedAt": "2026-05-12T11:35:43.945Z",
+      "logCount": 130
+    },
+    "scoreHistory": [
+      {
+        "ts": "2026-05-12T11:34:38.644Z",
+        "total": 0,
+        "dimScores": {
+          "D1": 0,
+          "D2": 0,
+          "D3": 0,
+          "D4": 0,
+          "D5": 0,
+          "D6": 0,
+          "D7": 0,
+          "D8": 0
+        },
+        "trigger": "boot"
+      },
+      {
+        "ts": "2026-05-12T11:34:45.724Z",
+        "total": 782.2,
+        "dimScores": {
+          "D1": 85,
+          "D2": 100,
+          "D3": 99.7,
+          "D4": 100,
+          "D5": 97.5,
+          "D6": 100,
+          "D7": 100,
+          "D8": 100
+        },
+        "trigger": "import"
+      },
+      {
+        "ts": "2026-05-12T11:35:06.539Z",
+        "total": 787.2,
+        "dimScores": {
+          "D1": 90,
+          "D2": 100,
+          "D3": 99.7,
+          "D4": 100,
+          "D5": 97.5,
+          "D6": 100,
+          "D7": 100,
+          "D8": 100
+        },
+        "trigger": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:09.929Z",
+        "total": 792.2,
+        "dimScores": {
+          "D1": 95,
+          "D2": 100,
+          "D3": 99.7,
+          "D4": 100,
+          "D5": 97.5,
+          "D6": 100,
+          "D7": 100,
+          "D8": 100
+        },
+        "trigger": "user"
+      },
+      {
+        "ts": "2026-05-12T11:35:13.973Z",
+        "total": 797.2,
+        "dimScores": {
+          "D1": 100,
+          "D2": 100,
+          "D3": 99.7,
+          "D4": 100,
+          "D5": 97.5,
+          "D6": 100,
+          "D7": 100,
+          "D8": 100
+        },
+        "trigger": "user"
+      }
+    ]
+  }
+}

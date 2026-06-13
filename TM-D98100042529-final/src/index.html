@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agile vs Waterfall Arena</title>
+<style>
+:root{
+  --bg:#07080f;--bg2:#0d1117;--bg3:#161b27;
+  --surface:#1a2236;--surface2:#1f2a40;
+  --border:rgba(96,165,250,0.12);--border2:rgba(96,165,250,0.28);
+  --text:#dde6f5;--text2:#8fa3c0;--text3:#4f6480;
+  --agile:#34d3fc;--agile2:#0ea5e9;--agile-glow:rgba(52,211,252,0.18);
+  --water:#b98eff;--water2:#8b5cf6;--water-glow:rgba(185,142,255,0.18);
+  --gold:#fbbf24;--green:#22d3a0;--red:#f87171;--orange:#fb923c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;overflow-x:hidden;}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;}
+
+/* screens */
+.screen{display:none;position:relative;z-index:1;min-height:100vh;}
+.screen.active{display:flex;flex-direction:column;}
+
+/* ── INTRO ── */
+#intro{align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem;}
+.hero{position:relative;width:110px;height:110px;margin:0 auto 2.5rem;}
+.hero .r1{position:absolute;inset:0;border-radius:50%;border:2px solid var(--agile);animation:spin 6s linear infinite;}
+.hero .r2{position:absolute;inset:10px;border-radius:50%;border:1px solid var(--water);animation:spin 4s linear infinite reverse;opacity:.6;}
+.hero .core{position:absolute;inset:22px;border-radius:50%;background:linear-gradient(135deg,#0c2a3d,#1e1340);display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gtitle{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,var(--agile) 20%,var(--water) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:.5rem;}
+.gsub{font-size:.9rem;color:var(--text2);margin-bottom:.3rem;}
+.gdesc{font-size:.82rem;color:var(--text3);max-width:440px;margin:0 auto 2.5rem;line-height:1.75;}
+.lv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.875rem;max-width:560px;margin:0 auto 2rem;}
+.lv-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.2rem;text-align:left;cursor:pointer;transition:all .22s;}
+.lv-card:hover{transform:translateY(-3px);border-color:var(--border2);}
+.lv-num{font-size:1.6rem;font-weight:800;margin-bottom:.4rem;}
+.lv-name{font-size:.9rem;font-weight:700;margin-bottom:.25rem;}
+.lv-desc{font-size:.73rem;color:var(--text3);line-height:1.5;}
+.lv-badge{display:inline-block;font-size:.62rem;font-weight:700;padding:.15rem .5rem;border-radius:5px;margin-top:.5rem;}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.6rem;border-radius:999px;border:none;cursor:pointer;font-size:.87rem;font-weight:700;font-family:inherit;transition:all .2s;}
+.btn-glow{background:linear-gradient(135deg,var(--agile2),var(--water2));color:#fff;box-shadow:0 0 20px rgba(52,211,252,.2);}
+.btn-glow:hover{transform:translateY(-2px);box-shadow:0 4px 28px rgba(52,211,252,.3);}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2);}
+.btn-ghost:hover{background:var(--surface);color:var(--text);}
+.btn-green{background:var(--green);color:#000;font-weight:700;}
+.btn-agile{background:linear-gradient(135deg,#0369a1,var(--agile));color:#fff;}
+.btn-agile:hover{transform:translateY(-2px);}
+.btn-water{background:linear-gradient(135deg,var(--water2),#c4b5fd);color:#fff;}
+.btn-water:hover{transform:translateY(-2px);}
+
+/* ── TOPBAR ── */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.4rem;background:rgba(13,17,23,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;flex-shrink:0;}
+.tb-brand{font-weight:800;font-size:.88rem;background:linear-gradient(90deg,var(--agile),var(--water));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tb-left{display:flex;align-items:center;gap:.8rem;}
+.tb-pill{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:.18rem .6rem;font-size:.68rem;color:var(--text2);}
+.tb-right{display:flex;align-items:center;gap:.6rem;}
+.chip{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.28rem .6rem;font-size:.72rem;display:flex;align-items:center;gap:.3rem;}
+.chip .cl{color:var(--text3);font-size:.62rem;}
+.chip .cv{font-weight:700;}
+.tclock{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.28rem .65rem;font-size:.82rem;font-weight:800;min-width:48px;text-align:center;font-variant-numeric:tabular-nums;transition:color .2s,border-color .2s;}
+.tclock.warn{color:var(--orange);border-color:rgba(251,146,60,.4);}
+.tclock.crit{color:var(--red);border-color:rgba(248,113,113,.4);}
+
+/* bars */
+.bars{display:flex;gap:.7rem;padding:.6rem 1.4rem;background:rgba(13,17,23,.8);border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.bar-item{flex:1;min-width:90px;}
+.bar-row{display:flex;justify-content:space-between;font-size:.62rem;color:var(--text3);margin-bottom:.25rem;}
+.bar-track{height:5px;background:var(--bg3);border-radius:999px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:999px;transition:width .5s ease;}
+
+/* dots */
+.prog-dots{display:flex;gap:.3rem;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);}
+.dot.done{background:var(--green);border-color:var(--green);}
+.dot.cur{background:var(--agile);border-color:var(--agile);}
+
+/* ── MAIN ── */
+.main{flex:1;padding:1.4rem;max-width:860px;margin:0 auto;width:100%;}
+.sc-meta{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.7rem;}
+.tag{padding:.18rem .52rem;border-radius:6px;font-size:.63rem;font-weight:700;}
+.t-blue{background:rgba(52,211,252,.1);color:var(--agile);border:1px solid rgba(52,211,252,.22);}
+.t-purple{background:rgba(185,142,255,.1);color:var(--water);border:1px solid rgba(185,142,255,.22);}
+.t-orange{background:rgba(251,146,60,.1);color:var(--orange);border:1px solid rgba(251,146,60,.22);}
+.t-green{background:rgba(34,211,160,.1);color:var(--green);border:1px solid rgba(34,211,160,.22);}
+.t-red{background:rgba(248,113,113,.1);color:var(--red);border:1px solid rgba(248,113,113,.22);}
+.t-gold{background:rgba(251,191,36,.1);color:var(--gold);border:1px solid rgba(251,191,36,.22);}
+.sc-title{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.55rem;}
+.sc-body{font-size:.86rem;color:var(--text2);line-height:1.75;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:.9rem;}
+.det-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.6rem;margin-bottom:1.4rem;}
+.det-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.8rem .9rem;}
+.det-icon{font-size:1rem;margin-bottom:.3rem;}
+.det-k{font-size:.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.15rem;}
+.det-v{font-size:.88rem;font-weight:700;}
+.tip{background:rgba(52,211,252,.06);border:1px solid rgba(52,211,252,.18);border-radius:10px;padding:.8rem 1rem;margin-bottom:1.1rem;font-size:.78rem;color:var(--text2);display:flex;gap:.5rem;line-height:1.6;}
+
+/* method cards */
+.m-heading{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.75rem;}
+.m-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1.4rem;}
+.mcard{background:var(--surface);border:2px solid var(--border);border-radius:16px;padding:1.4rem;cursor:pointer;text-align:left;transition:all .22s;position:relative;overflow:hidden;}
+.mcard::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;}
+.mcard.ac::before{background:radial-gradient(ellipse at top left,var(--agile-glow),transparent 65%);}
+.mcard.wc::before{background:radial-gradient(ellipse at top right,var(--water-glow),transparent 65%);}
+.mcard:hover::before{opacity:1;}
+.mcard.ac:hover{border-color:var(--agile);box-shadow:0 6px 28px var(--agile-glow);transform:translateY(-3px);}
+.mcard.wc:hover{border-color:var(--water);box-shadow:0 6px 28px var(--water-glow);transform:translateY(-3px);}
+.mcard.sel-a{border-color:var(--agile);box-shadow:0 0 22px var(--agile-glow);}
+.mcard.sel-a::before{opacity:1;}
+.mcard.sel-w{border-color:var(--water);box-shadow:0 0 22px var(--water-glow);}
+.mcard.sel-w::before{opacity:1;}
+.mcard.dim{opacity:.5;pointer-events:none;}
+.mcard-icon{font-size:2rem;margin-bottom:.6rem;}
+.mcard-name{font-size:1rem;font-weight:800;margin-bottom:.35rem;}
+.mcard-desc{font-size:.76rem;color:var(--text2);line-height:1.55;margin-bottom:.7rem;}
+.mcard-traits{display:flex;flex-wrap:wrap;gap:.28rem;}
+.trait{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:.15rem .45rem;font-size:.62rem;color:var(--text3);}
+
+/* feedback */
+.fb-box{border-radius:12px;padding:1rem 1.15rem;margin-bottom:1.1rem;border-left:3px solid;display:none;}
+.fb-box.show{display:block;animation:fadeUp .3s ease;}
+.fb-box.good{background:rgba(34,211,160,.06);border-left-color:var(--green);}
+.fb-box.bad{background:rgba(248,113,113,.06);border-left-color:var(--red);}
+.fb-head{font-weight:700;font-size:.92rem;margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.fb-body{font-size:.81rem;color:var(--text2);line-height:1.7;}
+.sf{display:inline-block;font-weight:800;padding:.1rem .42rem;border-radius:5px;font-size:.82rem;}
+.sf-p{background:rgba(34,211,160,.18);color:var(--green);}
+.sf-m{background:rgba(248,113,113,.18);color:var(--red);}
+.sf-b{background:rgba(251,191,36,.18);color:var(--gold);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* decisions */
+.d-heading{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.75rem;}
+.d-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.7rem;}
+.d-q{font-size:.88rem;font-weight:600;margin-bottom:.72rem;line-height:1.5;}
+.qnum{display:inline-block;background:var(--surface2);border:1px solid var(--border2);border-radius:5px;padding:.08rem .42rem;font-size:.67rem;font-weight:700;color:var(--text2);margin-right:.45rem;vertical-align:middle;}
+.d-opts{display:flex;flex-direction:column;gap:.35rem;}
+.opt{background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:.6rem .85rem;font-size:.8rem;color:var(--text2);cursor:pointer;transition:all .18s;display:flex;align-items:flex-start;gap:.6rem;line-height:1.5;}
+.opt:hover:not(.lk){border-color:var(--border2);color:var(--text);background:var(--surface2);transform:translateX(3px);}
+.opt.lk{pointer-events:none;}
+.opt.ok{border-color:rgba(34,211,160,.5);color:var(--green);background:rgba(34,211,160,.07);}
+.opt.ng{border-color:rgba(248,113,113,.4);color:var(--red);background:rgba(248,113,113,.06);}
+.opt-l{width:21px;height:21px;border-radius:5px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;flex-shrink:0;margin-top:.05rem;}
+.d-exp{display:none;margin-top:.65rem;font-size:.76rem;color:var(--text2);line-height:1.65;padding:.6rem .75rem;background:var(--bg3);border-radius:8px;border-left:3px solid var(--border2);}
+.d-exp.show{display:block;animation:fadeUp .25s ease;}
+.d-exp.eg{border-left-color:var(--green);}
+.d-exp.eb{border-left-color:var(--red);}
+
+/* crisis */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:200;display:none;align-items:center;justify-content:center;padding:1rem;}
+.overlay.on{display:flex;}
+.cmodal{background:var(--bg2);border:1px solid rgba(248,113,113,.35);border-radius:18px;max-width:460px;width:100%;padding:1.8rem;animation:popIn .3s cubic-bezier(.34,1.4,.64,1);box-shadow:0 0 50px rgba(248,113,113,.18);}
+@keyframes popIn{from{transform:scale(.82);opacity:0}to{transform:scale(1);opacity:1}}
+.c-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.3);border-radius:999px;padding:.25rem .7rem;font-size:.67rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.9rem;}
+.c-title{font-size:1.1rem;font-weight:800;margin-bottom:.6rem;}
+.c-body{font-size:.82rem;color:var(--text2);line-height:1.7;margin-bottom:1.3rem;}
+.c-opts{display:flex;flex-direction:column;gap:.4rem;}
+.c-opt{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.8rem .95rem;cursor:pointer;font-size:.81rem;color:var(--text2);transition:all .2s;display:flex;gap:.55rem;line-height:1.5;}
+.c-opt:hover{border-color:var(--border2);color:var(--text);transform:translateX(4px);}
+.c-opt .cl{font-weight:800;color:var(--text3);flex-shrink:0;}
+
+/* level complete */
+.lcov{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:250;display:none;align-items:center;justify-content:center;}
+.lcov.on{display:flex;}
+.lcm{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:2.2rem;text-align:center;max-width:400px;width:90%;animation:popIn .35s cubic-bezier(.34,1.4,.64,1);box-shadow:0 0 60px rgba(52,211,252,.12);}
+.lc-icon{font-size:3.2rem;margin-bottom:.7rem;display:block;}
+.lc-title{font-size:1.4rem;font-weight:800;margin-bottom:.3rem;}
+.lc-stars{font-size:1.8rem;letter-spacing:.25rem;margin-bottom:.45rem;}
+.lc-pts{font-size:2.6rem;font-weight:800;color:var(--gold);line-height:1;margin-bottom:.35rem;}
+.lc-sub{font-size:.8rem;color:var(--text2);margin-bottom:1.4rem;}
+.lc-btns{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;}
+
+/* achievement toast */
+.ach-toast{position:fixed;top:72px;right:14px;background:var(--surface);border:1px solid rgba(251,191,36,.4);border-radius:12px;padding:.85rem 1rem;z-index:300;max-width:240px;display:none;box-shadow:0 4px 20px rgba(251,191,36,.15);}
+.ach-toast.on{display:block;animation:fadeUp .35s ease;}
+.ach-lbl{font-size:.6rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.22rem;}
+.ach-name{font-size:.87rem;font-weight:700;margin-bottom:.12rem;}
+.ach-desc{font-size:.7rem;color:var(--text2);}
+
+/* results */
+#results{padding:2rem 1.4rem;align-items:center;}
+.res-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;max-width:680px;width:100%;padding:1.8rem;margin:0 auto;}
+.res-title{font-size:1.3rem;font-weight:800;text-align:center;margin-bottom:.25rem;}
+.res-sub{text-align:center;color:var(--text3);font-size:.75rem;margin-bottom:1.6rem;}
+.big-num{font-size:4rem;font-weight:800;background:linear-gradient(135deg,var(--agile),var(--water));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;text-align:center;}
+.big-max{text-align:center;color:var(--text3);font-size:.8rem;margin-bottom:.7rem;}
+.rank-pill{display:inline-block;background:linear-gradient(135deg,#d97706,var(--gold));color:#000;border-radius:999px;padding:.45rem 1.6rem;font-weight:800;font-size:.95rem;margin:.2rem auto .2rem;}
+.dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.4rem 0;}
+.dim{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.75rem .9rem;}
+.dim-name{font-size:.67rem;color:var(--text3);margin-bottom:.3rem;}
+.dim-track{height:4px;background:var(--bg3);border-radius:999px;overflow:hidden;margin-bottom:.25rem;}
+.dim-fill{height:100%;border-radius:999px;}
+.dim-val{font-size:.72rem;font-weight:700;color:var(--text2);}
+.log-pre{background:var(--bg3);border-radius:9px;padding:.8rem .9rem;font-size:.67rem;color:var(--agile);line-height:1.55;word-break:break-all;font-family:monospace;margin-bottom:.9rem;border:1px solid var(--border);}
+.btn-row{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;}
+.nxt-area{text-align:center;padding:1.4rem 0 2.5rem;}
+
+@media(max-width:560px){
+  .m-grid{grid-template-columns:1fr;}
+  .dim-grid{grid-template-columns:1fr;}
+  .lv-grid{grid-template-columns:1fr;}
+  .tb-right .chip:last-of-type{display:none;}
+}
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<!-- INTRO -->
+<div id="intro" class="screen active">
+  <div style="display:flex;flex-direction:column;align-items:center;padding:3rem 1.5rem;text-align:center;">
+    <div class="hero"><div class="r1"></div><div class="r2"></div><div class="core">⚡</div></div>
+    <h1 class="gtitle">Agile vs Waterfall Arena</h1>
+    <p class="gsub">Project Survival Simulation · COM0463 IT Project Management</p>
+    <p class="gdesc">Lead real-world software projects. Diagnose constraints, pick the right methodology, navigate crises, earn your PM title.</p>
+    <div class="lv-grid">
+      <div class="lv-card" onclick="startGame(1)">
+        <div class="lv-num" style="color:var(--agile)">01</div>
+        <div class="lv-name">Briefing Room</div>
+        <div class="lv-desc">Tutorial mode. No timer, detailed guidance on every answer.</div>
+        <span class="lv-badge" style="background:rgba(52,211,252,.1);color:var(--agile);border:1px solid rgba(52,211,252,.2);">No timer · 2 scenarios</span>
+      </div>
+      <div class="lv-card" onclick="startGame(2)">
+        <div class="lv-num" style="color:var(--water)">02</div>
+        <div class="lv-name">Methodology Wars</div>
+        <div class="lv-desc">Timer active. Stakeholder conflicts. Iron Triangle pressure.</div>
+        <span class="lv-badge" style="background:rgba(185,142,255,.1);color:var(--water);border:1px solid rgba(185,142,255,.2);">60s timer · 3 scenarios</span>
+      </div>
+      <div class="lv-card" onclick="startGame(3)">
+        <div class="lv-num" style="color:var(--orange)">03</div>
+        <div class="lv-name">Crisis Management</div>
+        <div class="lv-desc">Random crisis events. Budget &amp; morale bars. Decisions cascade.</div>
+        <span class="lv-badge" style="background:rgba(251,146,60,.1);color:var(--orange);border:1px solid rgba(251,146,60,.2);">45s timer · 3 scenarios</span>
+      </div>
+      <div class="lv-card" onclick="startGame(4)">
+        <div class="lv-num" style="color:var(--gold)">04</div>
+        <div class="lv-name">Executive Sim</div>
+        <div class="lv-desc">Programme-scale. Full lifecycle. Earn your PM title.</div>
+        <span class="lv-badge" style="background:rgba(251,191,36,.1);color:var(--gold);border:1px solid rgba(251,191,36,.2);">40s timer · 2 scenarios</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;">
+      <button class="btn btn-glow" onclick="startGame(1)">▶ Play from Level 1</button>
+      <button class="btn btn-ghost" onclick="howToPlay()">How to Play</button>
+    </div>
+    <p style="font-size:.68rem;color:var(--text3);margin-top:1.6rem;">Istanbul Kültür University · Ahmet Kaya &amp; Yusuf Altunel · COM0463</p>
+  </div>
+</div>
+
+<!-- GAME -->
+<div id="game" class="screen">
+  <div class="topbar">
+    <div class="tb-left">
+      <span class="tb-brand">⚡ AVW Arena</span>
+      <span class="tb-pill" id="tb-level">Level 1</span>
+      <div class="prog-dots" id="prog-dots"></div>
+    </div>
+    <div class="tb-right">
+      <div class="chip"><span class="cl">Score</span><span class="cv" id="sc-score">0</span></div>
+      <div class="chip"><span class="cl">Streak</span><span class="cv" id="sc-streak">0</span></div>
+      <div class="tclock" id="tclock">—</div>
+      <button class="btn btn-ghost" style="padding:.25rem .55rem;font-size:.7rem;" onclick="showIntro()">✕</button>
+    </div>
+  </div>
+  <div class="bars" id="bars" style="display:none;">
+    <div class="bar-item"><div class="bar-row"><span>💰 Budget</span><span id="bv0">100%</span></div><div class="bar-track"><div class="bar-fill" id="bf0" style="width:100%;background:linear-gradient(90deg,#059669,var(--green))"></div></div></div>
+    <div class="bar-item"><div class="bar-row"><span>😊 Morale</span><span id="bv1">100%</span></div><div class="bar-track"><div class="bar-fill" id="bf1" style="width:100%;background:linear-gradient(90deg,var(--agile2),var(--agile))"></div></div></div>
+    <div class="bar-item"><div class="bar-row"><span>⭐ Quality</span><span id="bv2">100%</span></div><div class="bar-track"><div class="bar-fill" id="bf2" style="width:100%;background:linear-gradient(90deg,var(--water2),var(--water))"></div></div></div>
+    <div class="bar-item"><div class="bar-row"><span>⏳ Schedule</span><span id="bv3">100%</span></div><div class="bar-track"><div class="bar-fill" id="bf3" style="width:100%;background:linear-gradient(90deg,#d97706,var(--gold))"></div></div></div>
+  </div>
+  <div class="main" id="gmain"></div>
+</div>
+
+<!-- RESULTS -->
+<div id="results" class="screen">
+  <div class="res-card" id="res-content"></div>
+</div>
+
+<!-- overlays -->
+<div class="overlay" id="cov"><div class="cmodal" id="cmodal"></div></div>
+<div class="lcov" id="lcov"><div class="lcm" id="lcm"></div></div>
+<div class="ach-toast" id="ach-toast"><div class="ach-lbl">🏆 Achievement Unlocked</div><div class="ach-name" id="ach-name"></div><div class="ach-desc" id="ach-desc"></div></div>
+
+<script>
+// ── PARTICLES ──
+(function(){
+  const cv=document.getElementById('particles'),cx=cv.getContext('2d');
+  let W,H,pts=[];
+  const rsz=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight;};
+  rsz();window.addEventListener('resize',rsz);
+  for(let i=0;i<50;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.1+.4,h:Math.random()<.5?195:268});
+  (function draw(){
+    cx.clearRect(0,0,W,H);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fillStyle=`hsla(${p.h},82%,68%,.5)`;cx.fill();});
+    pts.forEach((a,i)=>pts.slice(i+1).forEach(b=>{const d=Math.hypot(a.x-b.x,a.y-b.y);if(d<100){cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.strokeStyle=`rgba(96,165,250,${.12*(1-d/100)})`;cx.lineWidth=.5;cx.stroke();}}));
+    requestAnimationFrame(draw);
+  })();
+})();
+
+// ── DATA ──
+const DATA = {
+1:[
+  {id:'l1a',title:'National Tax Portal',
+   tags:[{t:'Stable Requirements',c:'blue'},{t:'Government',c:'purple'},{t:'18 months',c:'green'}],
+   body:'The Ministry of Finance needs a tax-filing portal for 40 million citizens. All 380 requirements are signed off in a formal spec. The client will not accept scope changes after contractual lock-in. Budget is fixed at $3.1M with mandatory government audit trails at every phase boundary.',
+   details:[{i:'⏱',k:'Timeline',v:'18 months'},{i:'💰',k:'Budget',v:'$3.1M fixed'},{i:'📋',k:'Requirements',v:'Fully specified'},{i:'⚠️',k:'Risk',v:'Low–Medium'}],
+   answer:'waterfall',
+   answerReason:'380 signed-off requirements plus mandatory government audit trails at every phase boundary — this is Waterfall territory. Sequential phases, formal sign-offs, and a documented RTM give regulators the traceability they demand.',
+   decisions:[
+     {q:'The client wants a formal progress report every 6 weeks. How do you structure delivery?',
+      opts:['Email weekly velocity charts from the Agile board','Set up formal stage-gate milestones with signed delivery documents at each phase boundary','Provide verbal updates in monthly status calls','Create a live dashboard the client can check any time'],
+      correct:1,ex:'Stage-gate milestones with formal sign-off documents are the Waterfall standard for government contracts. They create an auditable paper trail and match procurement rules.'},
+     {q:'Three months in, the Deputy Minister requests a new accessibility feature not in the original spec. Your first move?',
+      opts:['Build it quietly this weekend to keep the client happy','Refuse outright — the contract is fixed','Raise a formal Change Request, assess cost and schedule impact, present options to the steering committee','Add it to a wish-list and revisit after go-live'],
+      correct:2,ex:'Formal Change Requests are the control mechanism of Waterfall. They ensure scope changes are documented, costed, and approved before any work begins — protecting both sides of the contract.'},
+     {q:'How do you ensure every requirement is built and tested?',
+      opts:['Trust developers to self-check their work','Use a peer-review Slack channel after each commit','Maintain a Requirements Traceability Matrix linking each requirement to a design doc, code module, and test case','Run one big UAT session at the end'],
+      correct:2,ex:'A Requirements Traceability Matrix (RTM) is mandatory for regulated government software. It proves full coverage from requirement → design → code → test, and is the first artefact auditors ask for.'}
+   ]},
+  {id:'l1b',title:'Startup Food-Delivery App',
+   tags:[{t:'Volatile Requirements',c:'orange'},{t:'MVP Focus',c:'blue'},{t:'3 months',c:'red'}],
+   body:'A Series A startup needs an MVP food-delivery app in 3 months. The founder changes priorities weekly based on live user interviews. There is no fixed spec — only a vision doc and a pitch deck. The CTO\'s words: "We need to ship and learn, not plan and wait."',
+   details:[{i:'⏱',k:'Timeline',v:'3 months'},{i:'💰',k:'Budget',v:'Flexible'},{i:'📋',k:'Requirements',v:'Fluid — user-driven'},{i:'⚠️',k:'Risk',v:'Medium–High'}],
+   answer:'agile',
+   answerReason:'Volatile user-driven requirements plus a 3-month MVP mandate is the classic Agile scenario. Short sprints let the team ship, measure, and pivot with every user interview.',
+   decisions:[
+     {q:'How do you structure the team\'s work from day one?',
+      opts:['Write a full 60-page requirements doc before any coding','Run a 1-week Sprint 0 to set up the board and backlog, then 2-week sprints','Build a Gantt chart covering all 12 weeks upfront','Code continuously without structured iterations'],
+      correct:1,ex:'Sprint 0 establishes the foundation without over-planning. Then 2-week sprint cycles give the founder frequent, tangible checkpoints to steer the product without derailing the team mid-sprint.'},
+     {q:'The founder Slack-messages mid-sprint: "Add a group-order feature — it\'s urgent!" What do you do?',
+      opts:['Stop current work and build it immediately','Add it to the current sprint without telling the team','Acknowledge the request, add it to the backlog as a prioritised item, evaluate at next Sprint Planning','Tell the founder to submit a formal Change Request'],
+      correct:2,ex:'Agile protects the sprint\'s commitment while embracing change between sprints. Adding to the backlog preserves the team\'s focus now and gives the feature proper assessment next sprint.'},
+     {q:'After Sprint 2, users say the restaurant search is confusing. How do you respond?',
+      opts:['Log the complaint and fix it in version 2.0','Halt everything and redesign the entire app','Interview 5 users this week, raise a UX story in the backlog, include a redesigned search in Sprint 3','Explain to users the design was already approved'],
+      correct:2,ex:'Continuous user feedback driving backlog prioritisation is the Agile way. 5 quick interviews give enough signal for a confident Sprint Planning decision — no analysis paralysis needed.'}
+   ]}
+],
+2:[
+  {id:'l2a',title:'Hospital EHR System',
+   tags:[{t:'Patient Safety',c:'red'},{t:'HIPAA + FDA',c:'purple'},{t:'24 months',c:'green'},{t:'Zero-defect',c:'orange'}],
+   body:'A 12-hospital network is replacing paper records with a centralised EHR covering 80,000 patients. FDA 21 CFR Part 11 and HIPAA compliance are non-negotiable. The CTO: "Every decision must be traceable. A bug here doesn\'t mean a refund — it means patient harm."',
+   details:[{i:'⏱',k:'Timeline',v:'24 months'},{i:'💰',k:'Budget',v:'$9.2M'},{i:'📋',k:'Requirements',v:'Regulatory + fully specified'},{i:'⚠️',k:'Risk',v:'Critical — patient safety'}],
+   answer:'waterfall',
+   answerReason:'FDA 21 CFR Part 11 mandates complete audit trails and validated sequential testing for medical software. Waterfall\'s phase-gate structure creates the documentation and traceability regulators require.',
+   decisions:[
+     {q:'Testing reveals a critical encryption bug 10 days before UAT. What do you do?',
+      opts:['Ship on schedule and patch post-launch','Document it as a known issue and let the hospital fix it later','Delay UAT, fix the bug, re-run the full regression and security test suite, then proceed','Ask the regulator for a deadline extension'],
+      correct:2,ex:'In FDA-regulated software, no known security defect can go to UAT. The cost of a delayed milestone is far lower than the legal and human cost of a patient data breach.'},
+     {q:'A senior clinician suggests a UX improvement not in the spec. What happens next?',
+      opts:['Build it immediately — nurse usability is critical','Submit a formal Change Request, assess regulatory impact, update the RTM, get steering committee approval before touching code','Log it in a shared doc and review after go-live','Tell the clinician to raise it with the vendor post-implementation'],
+      correct:1,ex:'Even valuable UX improvements must go through Change Control in FDA-regulated projects. Uncontrolled changes invalidate the validation package — which means expensive re-validation of the whole system.'},
+     {q:'An auditor requests your HIPAA compliance evidence with 48 hours notice. How ready are you?',
+      opts:['Request a 2-week extension to compile documentation','Tell the auditor you\'ll provide evidence at project close','Produce the RTM, security test evidence, pen test report, and phase-gate sign-offs from your document management system immediately','Ask the auditor to evaluate the running system instead'],
+      correct:2,ex:'Mature Waterfall governance means audit-ready documentation at all times — not just at milestones. If you can\'t produce evidence on 48 hours\' notice, your compliance posture is already failing.'}
+   ]},
+  {id:'l2b',title:'Fashion E-Commerce Relaunch',
+   tags:[{t:'Competitive Market',c:'blue'},{t:'Incremental Releases',c:'green'},{t:'6 months',c:'orange'},{t:'Distributed Team',c:'purple'}],
+   body:'A fashion brand is relaunching its e-commerce platform to compete with Zara and ASOS. Marketing needs to A/B test features continuously. Trends shift monthly. The dev team is split between Istanbul and Amsterdam. The CMO: "I need to release something every two weeks or we\'re dead."',
+   details:[{i:'⏱',k:'Timeline',v:'6 months'},{i:'💰',k:'Budget',v:'$750k'},{i:'📋',k:'Requirements',v:'Market-driven, changing'},{i:'⚠️',k:'Risk',v:'Competitive'}],
+   answer:'agile',
+   answerReason:'Bi-weekly releases, A/B testing, rapidly shifting trends, and a distributed team — this is Scrum\'s home ground. Sprint reviews become the CMO\'s fortnightly demo.',
+   decisions:[
+     {q:'How do you keep Istanbul and Amsterdam teams aligned across time zones?',
+      opts:['Hold a weekly 3-hour synchronous planning call for everyone','Fly the Istanbul team to Amsterdam for the full project','Assign Istanbul to frontend and Amsterdam to backend with a shared API contract, run async daily stand-ups, sync in fortnightly sprint reviews','Let each city manage its own backlog independently'],
+      correct:2,ex:'Splitting by layer with a shared API contract reduces coordination overhead. Async stand-ups respect time zones. Sprint reviews provide the synchronisation checkpoint without forcing everyone online simultaneously.'},
+     {q:'Marketing wants to A/B test two checkout flows simultaneously. How do you handle it?',
+      opts:['Tell marketing to choose one — the team can\'t build both','Ask marketing to write a full business case first','Build variant A now and variant B next sprint','Plan both checkout variants as separate user stories behind a feature flag in the same sprint'],
+      correct:3,ex:'Feature flags are a standard Agile engineering practice for safe experimentation. Both variants ship in the same sprint, enabling a true simultaneous A/B test without separate releases or rollbacks.'},
+     {q:'Sprint 4 velocity drops 35% due to technical debt. Your response?',
+      opts:['Ignore it — velocity fluctuates naturally','Blame the developers and demand overtime','Cancel the sprint and restart with a clean codebase','Dedicate Sprint 5 as a hardening sprint focused on technical debt reduction, then reassess capacity'],
+      correct:3,ex:'A dedicated hardening sprint is the Agile way to address technical debt systematically. Sustainable pace matters — ignoring debt means losing even more velocity in sprints 6, 7, and 8.'}
+   ]},
+  {id:'l2c',title:'ERP Migration — Steel Manufacturer',
+   tags:[{t:'Hybrid',c:'purple'},{t:'Legacy COBOL',c:'orange'},{t:'12 months',c:'green'},{t:'High Stakes',c:'red'}],
+   body:'A steel manufacturer is migrating from a 25-year-old COBOL ERP to SAP S/4HANA. Finance and HR modules have stable, fully-documented requirements. The new supply-chain optimisation module is uncharted — requirements will only emerge through workshops. The CFO wants fixed-price; the CTO wants flexibility.',
+   details:[{i:'⏱',k:'Timeline',v:'12 months'},{i:'💰',k:'Budget',v:'$5.5M'},{i:'📋',k:'Requirements',v:'Mixed: stable + exploratory'},{i:'⚠️',k:'Risk',v:'High'}],
+   answer:'agile',
+   answerReason:'A hybrid approach: Waterfall for the stable Finance/HR modules and Agile sprints for the exploratory supply-chain module. Overall programme governance unifies both tracks.',
+   decisions:[
+     {q:'How do you resolve the CFO vs CTO contract model dispute?',
+      opts:['Give the CFO what they want — always follow the money','Give the CTO what they want — they know the tech','Use a single lump-sum contract for the whole project','Negotiate a split: fixed-price for defined Waterfall scope (Finance/HR) and time-and-materials for the Agile supply-chain module'],
+      correct:3,ex:'Aligning the commercial model to the delivery model is a mature PM practice. Fixed-scope work justifies fixed price; exploratory work needs T&M flexibility. A hybrid contract protects both sides.'},
+     {q:'The supply-chain team keeps discovering major new requirements in every workshop. How do you control scope?',
+      opts:['Lock scope immediately after the first workshop and refuse all new requirements','Add every new requirement to the main Waterfall plan and extend the timeline accordingly','Escalate to the board every time a new requirement appears','Apply rolling-wave planning: plan the next 4 sprints in detail, keep the horizon beyond that at feature level, update as workshops reveal more'],
+      correct:3,ex:'Rolling-wave planning is a PMI-endorsed technique for programmes with emergent requirements. Near-term work is fully detailed; far-out work stays at a higher level until discovery reveals enough to plan it properly.'},
+     {q:'Month 4: the Finance Waterfall track is on schedule but supply-chain Agile track is behind. How do you rebalance?',
+      opts:['Ignore it — the two tracks are independent','Force supply-chain to adopt Waterfall to catch up','Cancel the supply-chain module and deliver Finance and HR only','Temporarily shift developers from the Finance module after its phase gate, update the programme roadmap, inform the steering committee'],
+      correct:3,ex:'Programme-level resource rebalancing after a phase gate is a core PM skill. Proactive rebalancing with transparent stakeholder communication prevents the gap from compounding into a full programme failure.'}
+   ]}
+],
+3:[
+  {id:'l3a',title:'PCI-DSS Banking App Modernisation',
+   tags:[{t:'PCI-DSS',c:'red'},{t:'COBOL Legacy',c:'orange'},{t:'18 months',c:'green'},{t:'Microservices',c:'blue'}],
+   body:'A mid-size bank is modernising its mobile banking app on top of a 30-year-old COBOL monolith. PCI-DSS compliance is mandatory — any gap means a €500k fine per incident. The CTO wants microservices. The Compliance Director wants no surprises at any stage.',
+   details:[{i:'⏱',k:'Timeline',v:'18 months'},{i:'💰',k:'Budget',v:'$7.8M'},{i:'📋',k:'Requirements',v:'Regulatory + architecture-heavy'},{i:'⚠️',k:'Risk',v:'Critical'}],
+   answer:'waterfall',
+   answerReason:'PCI-DSS demands end-to-end traceability and formal security reviews at every phase gate. Waterfall\'s sequential structure and documentation culture match these requirements. Internal team ceremonies can still be Agile-style.',
+   crisisEvents:[
+     {title:'🔐 Zero-Day Vulnerability Discovered',body:'An external researcher has disclosed a zero-day in your authentication library. The fix requires 3 weeks of work and a full regression cycle. Launch is in 4 weeks.',opts:['Go live on schedule and patch in a hotfix next week','Delay launch by 3 weeks — patch, re-test, and re-validate fully','Notify the regulator you\'ll patch "as soon as possible" and proceed','Remove the authentication feature temporarily and launch without it'],correct:1,budI:-6,morI:-8,qualI:12,schedI:-15}
+   ],
+   decisions:[
+     {q:'Microservices architecture creates 8-second API latency under load against a 2-second SLA. How do you handle this?',
+      opts:['Convene an Architecture Review Board, model three remediation options, present a recommendation with cost and schedule impact to the steering committee','Keep the original design and hope performance improves at lower real-world loads','Switch back to the monolith — microservices was the wrong choice','Ask the client to relax the 2-second SLA'],
+      correct:0,ex:'An Architecture Review Board (ARB) is the formal governance body for technical baseline changes. Presenting three options with honest trade-offs gives the steering committee what they need for an informed decision.'},
+     {q:'An auditor asks for PCI-DSS compliance evidence with 48 hours notice. How ready are you?',
+      opts:['Produce the RTM, security test evidence, pen-test report, and signed phase-gate documents immediately','Request a 2-week extension to compile documentation','Tell the auditor you\'ll provide evidence at project close','Ask the auditor to evaluate the running system instead'],
+      correct:0,ex:'Mature Waterfall governance means audit-ready documentation at all times. If you can\'t produce evidence on 48 hours\' notice, your PCI-DSS compliance posture is already failing.'},
+     {q:'The pen test reveals the COBOL system has an unencrypted data pipe used by the new app. Fixing it adds 6 weeks. What do you do?',
+      opts:['Raise a formal Security Change Request, fix the pipe, update the traceability matrix, absorb the 6 weeks into contingency','Proceed — the new app encrypts data on its side, so the pipe is safe enough','Request a PCI-DSS waiver from the card networks','Launch and fix it in the next release cycle'],
+      correct:0,ex:'PCI-DSS Requirement 3 mandates encryption at every point — including legacy pipes feeding new systems. There is no waiver for a known encryption gap. Fixing it now costs far less than the fine and reputational damage.'}
+   ]},
+  {id:'l3b',title:'AI-Powered CRM Platform',
+   tags:[{t:'ML/AI',c:'blue'},{t:'Exploratory',c:'green'},{t:'9 months',c:'orange'},{t:'SaaS',c:'purple'}],
+   body:'A SaaS company wants to launch an AI-powered CRM in 9 months. The ML model accuracy is unknown until trained on real customer data — sales has already promised 85% accuracy to three enterprise clients. Competitors are shipping fast.',
+   details:[{i:'⏱',k:'Timeline',v:'9 months'},{i:'💰',k:'Budget',v:'$2.8M'},{i:'📋',k:'Requirements',v:'Exploratory + data-driven'},{i:'⚠️',k:'Risk',v:'Technical + market'}],
+   answer:'agile',
+   answerReason:'AI/ML projects have inherently uncertain outputs — you cannot specify accuracy in a requirements doc. Agile\'s sprint-based experiments and hypothesis-driven development are the only sensible approach.',
+   crisisEvents:[
+     {title:'📉 ML Model Stuck at 61% Accuracy',body:'After 3 months of training, the ML model achieves 61% accuracy. Sales promised 85%. Three enterprise clients have signed contracts with accuracy guarantees and are asking for updates.',opts:['Tell clients you\'re at 79% and buy time while the team scrambles','Be fully transparent: share the 61% figure, propose a 90-day accuracy improvement plan, offer contract renegotiation if needed','Remove the AI feature and ship as a traditional CRM without telling clients','Blame the client\'s data quality and demand better training data before proceeding'],correct:1,budI:-8,morI:-5,qualI:6,schedI:-12}
+   ],
+   decisions:[
+     {q:'How do you manage the ML model\'s accuracy uncertainty without losing client trust?',
+      opts:['Commit to 85% in contracts and figure it out later','Refuse to give any accuracy estimate until after launch','Define empirical accuracy thresholds per sprint (e.g. 65% by sprint 4, 80% by sprint 7) and report progress transparently to clients at each milestone','Run one large training job at the end of the project and report accuracy then'],
+      correct:2,ex:'ML projects require measurable sprint-level success criteria. Defining and publishing accuracy milestones turns an uncertain outcome into a managed experiment — and keeps clients informed rather than surprised.'},
+     {q:'The sales team has promised a "predictive deal-scoring" feature to a key client — it\'s not in the backlog and wasn\'t discussed with product. What do you do?',
+      opts:['Build it immediately — key clients come first','Refuse — the backlog is already locked','Fire the account executive for making unauthorised commitments','Evaluate the feature\'s ML complexity, estimate effort honestly, add it to the backlog with the client\'s context, negotiate priority at the next Sprint Planning with the Product Owner'],
+      correct:3,ex:'The Product Owner owns the backlog — not sales. But the feature may be genuinely valuable. The right move is proper backlog entry, transparent estimation, and Sprint Planning to decide priority — not bypassing the process.'},
+     {q:'Two engineers want to experiment with a new transformer architecture they found on arXiv. How do you handle it?',
+      opts:['Ban all experimentation — the project is already high-risk','Add the experiment to the next sprint\'s main workload','Tell them to experiment on their own time after the product ships','Schedule a 3-day time-boxed technical spike in Sprint 6 to evaluate the architecture against a clear exit criterion: does it improve accuracy by ≥5% on the validation set?'],
+      correct:3,ex:'A time-boxed spike is the Agile way to evaluate technical risk without derailing delivery. Three days with a clear exit criterion turns excitement into evidence — and the result informs a data-driven decision at the next Sprint Planning.'}
+   ]},
+  {id:'l3c',title:'Istanbul Smart City IoT Programme',
+   tags:[{t:'IoT · 50k sensors',c:'blue'},{t:'EU-funded',c:'purple'},{t:'5 years',c:'green'},{t:'Multi-vendor',c:'orange'}],
+   body:'Istanbul\'s municipality is deploying a smart city IoT network: 50,000 sensors, AI traffic management, waste optimisation, and a citizen app. Five vendors, three government departments, and a €45M EU grant with quarterly reporting requirements.',
+   details:[{i:'⏱',k:'Timeline',v:'5 years'},{i:'💰',k:'Budget',v:'€45M EU-funded'},{i:'📋',k:'Requirements',v:'Mixed: policy + exploratory tech'},{i:'⚠️',k:'Risk',v:'Strategic — city-wide'}],
+   answer:'agile',
+   answerReason:'A hybrid programme: Waterfall governance for EU compliance reporting and infrastructure procurement; Agile sprints for the citizen app and AI algorithm development. Unified steering committee across both tracks.',
+   crisisEvents:[
+     {title:'📡 Primary Sensor Vendor Goes Insolvent',body:'Your primary IoT sensor vendor — contracted for 30,000 of the 50,000 units — has filed for insolvency. You have 8 weeks before the installation window closes.',opts:['Activate the pre-qualified contingency vendor from the risk register — they have 28,000 units available','Source sensors from any open-market vendor without quality validation','Delay the entire programme by 18 months','Inform the EU that the vendor went bankrupt and request a no-cost extension'],correct:0,budI:-12,morI:-7,qualI:0,schedI:-5}
+   ],
+   decisions:[
+     {q:'How do you govern a programme with 5 vendors, 3 government departments, and 2 delivery methodologies?',
+      opts:['Let each vendor self-manage and report to you monthly','Appoint one vendor as programme lead and give them authority over the others','Use a flat Agile structure — hierarchy slows down innovative projects','Establish a Programme Management Office with a joint steering committee, a RACI matrix, monthly governance boards, and a unified risk register shared across all workstreams'],
+      correct:3,ex:'Complex multi-stakeholder programmes require formal PMO governance. A RACI matrix eliminates accountability gaps. A unified risk register ensures risks don\'t fall between vendor boundaries. The steering committee provides the escalation path that keeps five organisations aligned.'},
+     {q:'Month 18: the AI traffic system achieves only 71% congestion reduction against a promised 85%. The municipality threatens penalty clauses. How do you respond?',
+      opts:['Dispute the municipality\'s measurement methodology','Pay the penalty and move on','Escalate to your legal team and prepare for arbitration','Present quantitative performance data, acknowledge the gap honestly, and propose a structured 6-month improvement roadmap with monthly accuracy milestones'],
+      correct:3,ex:'Public sector contract disputes are expensive and relationship-destroying. A data-driven improvement roadmap demonstrates professionalism and good faith — and typically averts penalty clause invocation. Always acknowledge before proposing.'},
+     {q:'The citizen app team wants to adopt a React framework incompatible with the existing API gateway used by all 5 vendors. What do you do?',
+      opts:['Approve it — developer experience matters for productivity','Let the citizen app and backend diverge — they\'re separate systems','Ask the team to build and maintain a compatibility shim indefinitely','Reject through the Change Advisory Board, document the architectural reasoning, schedule a cross-vendor API evolution discussion for the next Programme Increment planning session'],
+      correct:3,ex:'In multi-vendor programmes, unilateral technology decisions break interoperability and create hidden costs for every other vendor. Change Advisory Boards exist precisely to evaluate cross-system impact before approving technical changes.'}
+   ]}
+],
+4:[
+  {id:'l4a',title:'FinTech Digital Transformation',
+   tags:[{t:'Programme-Scale',c:'blue'},{t:'120 People',c:'purple'},{t:'24 months',c:'green'},{t:'Executive Level',c:'gold'}],
+   body:'You are Programme Director for a FinTech company\'s full digital transformation: legacy core banking replacement, mobile super-app launch, and AI regulatory reporting system — running in parallel with a 120-person team and a $20M budget. The CEO: "If this fails, the company fails."',
+   details:[{i:'⏱',k:'Timeline',v:'24 months'},{i:'💰',k:'Budget',v:'$20M'},{i:'📋',k:'Requirements',v:'Strategic + evolving'},{i:'⚠️',k:'Risk',v:'Existential'}],
+   answer:'agile',
+   answerReason:'Programme-scale digital transformation demands SAFe (Scaled Agile Framework): Agile Release Trains per workstream, quarterly PI Planning for alignment, with Waterfall-compatible governance for the regulatory AI track.',
+   crisisEvents:[
+     {title:'💸 CFO Mandates 20% Budget Cut',body:'Macroeconomic conditions force a $4M cut immediately. Full scope must still be delivered. The CFO offers a 4-month timeline extension as compensation.',opts:['Reduce headcount by 20% proportionally across all three workstreams','Accept the cut silently and let scope slip without informing the board','Push back on the cut and threaten to resign','Conduct a value-based scope triage with all workstream leads — rank deliverables by business value, cut the bottom 20% by cost, present the revised roadmap to the board within 72 hours'],correct:3,budI:-20,morI:-8,qualI:-5,schedI:-15}
+   ],
+   decisions:[
+     {q:'How do you coordinate 120 people across 3 parallel workstreams without bureaucratic gridlock?',
+      opts:['Run 3 independent Agile teams with no coordination ceremonies','Use a single Waterfall programme plan managed by a centralised PMO','Let each workstream choose its own methodology and sync monthly','Implement SAFe: Agile Release Trains per workstream, quarterly PI Planning sessions for cross-team alignment, a shared System Architecture team, and a Programme Kanban for cross-cutting risks'],
+      correct:3,ex:'SAFe\'s Agile Release Trains solve the coordination problem at scale without micromanagement. Quarterly PI Planning aligns 120 people on a shared objective while the shared System Architecture team prevents the technical divergence that kills large programmes.'},
+     {q:'The legacy core banking team (avg 15-year tenure) is deeply resistant to Agile. They say Scrum is "for startups." How do you handle this?',
+      opts:['Force Agile adoption company-wide — consistency is non-negotiable','Fire the resistant engineers and hire Agile-experienced replacements','Give them complete autonomy with no SAFe alignment','Design a Waterfall-compatible delivery track within the SAFe programme for the core banking workstream — their phase gates align to Programme Increments, they attend PI Planning but run internally as they prefer'],
+      correct:3,ex:'Bi-modal IT (running Agile and Waterfall tracks in parallel under unified governance) is a mature enterprise pattern. Forcing methodology change on experienced engineers mid-programme destroys morale and creates project risk. Accommodate them within the governance structure.'},
+     {q:'Month 14: mobile super-app is 6 weeks behind schedule. AI regulatory module is 4 weeks ahead. The board wants a recovery plan.',
+      opts:['Extend the overall programme by 6 weeks — one workstream\'s delay affects everything','Tell the board the delay is due to external factors beyond your control','Cancel the super-app and focus all resources on the regulatory module','Temporarily move 8 engineers from the AI regulatory module to the super-app for 2 sprints, update the Programme Increment roadmap, present the revised plan to the board within the week'],
+      correct:3,ex:'Programme-level resource rebalancing is a core Programme Director responsibility. The AI module\'s buffer gives you headroom to help the super-app without jeopardising regulatory compliance. Proactive board communication with a concrete plan is what separates executives from project managers.'}
+   ]},
+  {id:'l4b',title:'Global Healthcare Data Platform',
+   tags:[{t:'Multi-country',c:'blue'},{t:'GDPR + HIPAA',c:'red'},{t:'30 months',c:'green'},{t:'Cloud-native',c:'purple'}],
+   body:'A pharmaceutical company is building a global clinical trial data platform across 28 countries. GDPR, HIPAA, and local data-residency laws all apply. Cloud infrastructure must auto-scale for unpredictable trial volumes. The science team\'s data requirements evolve as trials progress.',
+   details:[{i:'⏱',k:'Timeline',v:'30 months'},{i:'💰',k:'Budget',v:'$35M'},{i:'📋',k:'Requirements',v:'Regulatory fixed + science evolving'},{i:'⚠️',k:'Risk',v:'Global compliance + patient data'}],
+   answer:'agile',
+   answerReason:'Another hybrid: Waterfall for the fixed regulatory compliance framework (GDPR, HIPAA, data-residency), Agile for the evolving science team requirements and cloud infrastructure iterations. A unified compliance gate at each Programme Increment.',
+   crisisEvents:[
+     {title:'🌍 Data-Residency Violation Discovered',body:'A routine audit finds that patient data from 3 EU countries has been processed on US servers — a clear GDPR violation. Regulators have been notified automatically by the audit system. You have 72 hours to respond.',opts:['Immediately suspend the affected data pipelines, notify the DPA in each affected country proactively, engage legal counsel, and present a full remediation plan within 72 hours','Quietly fix the routing and hope the auditors don\'t escalate','Issue a public statement downplaying the severity to protect share price','Blame the cloud provider and wait for them to fix it'],correct:0,budI:-15,morI:-10,qualI:8,schedI:-8}
+   ],
+   decisions:[
+     {q:'How do you handle 28 different countries\' data-residency laws without building 28 separate systems?',
+      opts:['Build 28 separate national instances — compliance comes first regardless of cost','Ignore data-residency for non-EU countries — GDPR is the only real enforcement risk','Build one global system and add data-residency compliance after launch','Design a cloud-native data-mesh architecture with per-country data domains, unified compliance controls, and automated residency enforcement — validate the architecture in a 3-country pilot before full rollout'],
+      correct:3,ex:'A data-mesh architecture with per-country domains is the scalable solution. It provides compliance isolation without 28x operational overhead. Validating with a 3-country pilot before full rollout is the Agile way to de-risk the architectural choice.'},
+     {q:'The science team\'s trial data requirements change significantly every 6 months as trials progress to new phases. How do you accommodate this?',
+      opts:['Lock the data schema at project start and refuse all changes','Build a completely generic schema that can handle anything — then optimise later','Establish a quarterly science requirements review aligned to Programme Increments, with a data schema governance process that allows controlled evolution with backward compatibility','Ask the science team to predict all requirements upfront before development begins'],
+      correct:2,ex:'Quarterly schema governance aligned to Programme Increments gives the science team the flexibility they need while maintaining backward compatibility for existing trials. It\'s the hybrid sweet spot between flexibility and stability.'},
+     {q:'Six months in, cloud infrastructure costs are 40% over budget due to underestimated trial data volumes. How do you respond?',
+      opts:['Accept the cost overrun — compliance and scale can\'t be compromised','Reduce data retention periods without consulting the science team or legal counsel','Switch from cloud to on-premise to reduce variable costs','Conduct an infrastructure cost review sprint: rightsize instances, implement auto-scaling policies, negotiate reserved-instance discounts, present a revised cost model to the steering committee within 3 weeks'],
+      correct:3,ex:'A dedicated infrastructure optimisation sprint is the Agile response to unexpected cost overruns. Rightsizing, auto-scaling, and reserved instances can reduce cloud costs by 30-50% without touching compliance or capability. The steering committee needs a revised cost model — not a surprise in the next board report.'}
+   ]}
+]};
+
+// ── ACHIEVEMENTS ──
+const ACHS=[
+  {id:'first',name:'First Call',desc:'Made your first methodology decision.',icon:'⚡'},
+  {id:'wf3',name:'Waterfall Veteran',desc:'Correctly picked Waterfall 3 times.',icon:'🌊'},
+  {id:'ag3',name:'Agile Champion',desc:'Correctly picked Agile 3 times.',icon:'🏃'},
+  {id:'perfect',name:'Zero Defects',desc:'100% decision accuracy on a level.',icon:'💎'},
+  {id:'speed3',name:'Speed Demon',desc:'3 answers under 12 seconds each.',icon:'💨'},
+  {id:'crisis',name:'Crisis Ace',desc:'Resolved a crisis successfully.',icon:'🔥'},
+  {id:'streak5',name:'On Fire',desc:'5 correct answers in a row.',icon:'🔥'},
+  {id:'exec',name:'Executive PM',desc:'Reached Level 4.',icon:'👔'},
+];
+
+// ── STATE ──
+const TLIMITS={1:0,2:60,3:45,4:40};
+let G={};
+let _log=null;
+
+function initState(lv){
+  G={level:lv,score:0,streak:0,scIdx:0,phase:'method',methodPicked:false,
+     decResults:[],log:[],achs:new Set(),
+     budget:100,morale:100,quality:100,sched:100,crisisDone:false,
+     totalDec:0,correctDec:0,wfOk:0,agOk:0,speedOk:0,consec:0,
+     timerVal:0,timerInt:null,startTime:Date.now()};
+}
+
+// ── SCREENS ──
+function ss(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function showIntro(){clearT();closeAllOverlays();ss('intro');}
+
+// ── START ──
+function startGame(lv){
+  closeAllOverlays();
+  initState(lv);
+  document.getElementById('tb-level').textContent='Level '+lv;
+  document.getElementById('bars').style.display=lv>=3?'flex':'none';
+  ss('game');updateTB();renderSc();
+  if(lv>=4)unlock('exec');
+}
+
+function closeAllOverlays(){
+  document.getElementById('cov').classList.remove('on');
+  document.getElementById('lcov').classList.remove('on');
+}
+
+// ── RENDER SCENARIO ──
+function renderSc(){
+  const list=DATA[G.level];
+  if(G.scIdx>=list.length){showLC();return;}
+  const sc=list[G.scIdx];
+  G.phase='method';G.methodPicked=false;G.crisisDone=false;G.decResults=[];
+  updateDots(list.length);updateBars();
+
+  const tags=sc.tags.map(t=>`<span class="tag t-${t.c}">${t.t}</span>`).join('');
+  const dets=sc.details.map(d=>`<div class="det-card"><div class="det-icon">${d.i}</div><div class="det-k">${d.k}</div><div class="det-v">${d.v}</div></div>`).join('');
+  const tip=G.level===1?`<div class="tip"><span>💡</span><span>Study the tags and detail cards. Requirements stability, regulatory context, and timeline length are your strongest signals for methodology selection.</span></div>`:'';
+
+  document.getElementById('gmain').innerHTML=`
+    <div style="margin-bottom:1.4rem;"><div class="sc-meta">${tags}</div><div class="sc-title">${sc.title}</div></div>
+    <div class="sc-body">${sc.body}</div>
+    <div class="det-grid">${dets}</div>
+    ${tip}
+    <div class="m-heading">Choose Your Methodology</div>
+    <div class="m-grid">
+      <button class="mcard ac" id="btn-agile" onclick="pickMethod('agile')">
+        <div class="mcard-icon">🏃</div>
+        <div class="mcard-name" style="color:var(--agile)">Agile / Scrum</div>
+        <div class="mcard-desc">Iterative sprints, adaptive planning, continuous delivery. For uncertain, fast-changing environments where requirements evolve with every release.</div>
+        <div class="mcard-traits"><span class="trait">Sprints</span><span class="trait">Backlog</span><span class="trait">Standup</span><span class="trait">Retro</span><span class="trait">MVP-first</span></div>
+      </button>
+      <button class="mcard wc" id="btn-water" onclick="pickMethod('waterfall')">
+        <div class="mcard-icon">🌊</div>
+        <div class="mcard-name" style="color:var(--water)">Waterfall / SDLC</div>
+        <div class="mcard-desc">Sequential phases, comprehensive documentation, formal sign-offs at each gate. For stable, regulated environments where requirements are known upfront.</div>
+        <div class="mcard-traits"><span class="trait">Gantt Chart</span><span class="trait">Stage Gates</span><span class="trait">Change Control</span><span class="trait">RTM</span><span class="trait">Formal UAT</span></div>
+      </button>
+    </div>
+    <div id="fb-area"></div>
+    <div id="dec-area"></div>
+    <div id="nxt-area"></div>`;
+  startT();
+}
+
+// ── PICK METHOD ──
+function pickMethod(m){
+  if(G.methodPicked)return;
+  G.methodPicked=true;
+  const sc=DATA[G.level][G.scIdx];
+  const ok=m===sc.answer;
+  const elapsed=TLIMITS[G.level]?(TLIMITS[G.level]-G.timerVal):0;
+  clearT();
+
+  // dim both, highlight chosen
+  const btnA=document.getElementById('btn-agile');
+  const btnW=document.getElementById('btn-water');
+  if(btnA)btnA.classList.add('dim');
+  if(btnW)btnW.classList.add('dim');
+  const chosen=m==='agile'?btnA:btnW;
+  if(chosen){chosen.classList.remove('dim');chosen.classList.add(m==='agile'?'sel-a':'sel-w');}
+
+  let gain=0,extra='';
+  if(ok){
+    gain=100;
+    if(TLIMITS[G.level]&&elapsed<15){gain+=25;G.speedOk++;extra+=' <span class="sf sf-b">+25 speed!</span>';}
+    G.score+=gain;G.streak++;G.consec++;
+    if(m==='waterfall')G.wfOk++;else G.agOk++;
+    extra='<span class="sf sf-p">+'+gain+'</span>'+extra;
+    if(G.streak>=3)extra+=' <span class="sf sf-b">🔥 x'+G.streak+' streak!</span>';
+  }else{
+    const pen={1:0,2:-30,3:-40,4:-50}[G.level]||0;
+    G.score=Math.max(0,G.score+pen);G.streak=0;G.consec=0;
+    if(pen<0)extra='<span class="sf sf-m">'+pen+'</span>';
+  }
+
+  const fb=document.getElementById('fb-area');
+  if(fb)fb.innerHTML=`<div class="fb-box ${ok?'good':'bad'} show"><div class="fb-head">${ok?'✅ Correct!':'❌ Not quite.'} ${extra}</div><div class="fb-body">${sc.answerReason}</div></div>`;
+
+  checkAchs();updateTB();unlock('first');
+  G.log.push({scenario:sc.id,event:'method',choice:m,correct:ok,ts:new Date().toISOString()});
+
+  const hasCrisis=G.level>=3&&sc.crisisEvents&&sc.crisisEvents.length&&!G.crisisDone&&Math.random()>.3;
+  if(hasCrisis){setTimeout(()=>showCrisis(sc.crisisEvents[0]),1400);}
+  else{setTimeout(renderDecs,1100);}
+}
+
+// ── CRISIS ──
+function showCrisis(cr){
+  G.crisisDone=true;
+  const opts=cr.opts.map((o,i)=>`<div class="c-opt" onclick="solveCrisis(${i})"><span class="cl">${String.fromCharCode(65+i)}.</span>${o}</div>`).join('');
+  const m=document.getElementById('cmodal');
+  if(m)m.innerHTML=`<div class="c-badge">⚠️ Crisis Event</div><div class="c-title">${cr.title}</div><div class="c-body">${cr.body}</div><div class="c-opts">${opts}</div>`;
+  document.getElementById('cov').classList.add('on');
+}
+
+function solveCrisis(chosen){
+  const sc=DATA[G.level][G.scIdx];
+  if(!sc||!sc.crisisEvents||!sc.crisisEvents[0])return;
+  const cr=sc.crisisEvents[0];const ok=chosen===cr.correct;
+  if(ok){
+    G.budget=Math.max(0,G.budget+cr.budI);G.morale=Math.max(0,G.morale+cr.morI);
+    G.quality=Math.min(100,Math.max(0,G.quality+cr.qualI));G.sched=Math.max(0,G.sched+cr.schedI);
+    G.score+=160;unlock('crisis');
+  }else{
+    G.budget=Math.max(0,G.budget+(cr.budI||0)*2);G.morale=Math.max(0,G.morale+(cr.morI||0)*2);
+    G.quality=Math.max(0,G.quality+(cr.qualI||0));G.sched=Math.max(0,G.sched+(cr.schedI||0)*2);
+  }
+  updateBars();updateTB();
+  document.getElementById('cov').classList.remove('on');
+  setTimeout(renderDecs,350);
+}
+
+// ── DECISIONS ──
+function renderDecs(){
+  const sc=DATA[G.level][G.scIdx];G.phase='decisions';
+  const da=document.getElementById('dec-area');
+  if(!da)return;
+  da.innerHTML=`<div class="d-heading">Project Decisions — ${sc.decisions.length} questions</div>`+
+    sc.decisions.map((d,i)=>`
+      <div class="d-card" id="dc${i}">
+        <div class="d-q"><span class="qnum">Q${i+1}</span>${d.q}</div>
+        <div class="d-opts">${d.opts.map((o,j)=>`<div class="opt" id="o${i}_${j}" onclick="answerDec(${i},${j})"><span class="opt-l">${String.fromCharCode(65+j)}</span><span>${o}</span></div>`).join('')}</div>
+        <div class="d-exp" id="exp${i}"></div>
+      </div>`).join('');
+  const na=document.getElementById('nxt-area');
+  if(na)na.innerHTML='';
+  startT();
+}
+
+// ── ANSWER DECISION ──
+function answerDec(qi,chosen){
+  if(G.decResults.some(r=>r.q===qi))return;
+  const sc=DATA[G.level][G.scIdx];const dec=sc.decisions[qi];
+  const elapsed=TLIMITS[G.level]?(TLIMITS[G.level]-G.timerVal):0;
+  clearT();
+  const ok=chosen===dec.correct;G.totalDec++;
+  let gain=0;
+  if(ok){
+    gain=60;
+    if(TLIMITS[G.level]&&elapsed<12){gain+=25;G.speedOk++;}
+    G.score+=gain;G.streak++;G.correctDec++;G.consec++;
+  }else{
+    const pen={1:0,2:-25,3:-35,4:-45}[G.level]||0;
+    G.score=Math.max(0,G.score+pen);G.streak=0;G.consec=0;
+    if(G.level>=3){G.budget=Math.max(0,G.budget-4);G.morale=Math.max(0,G.morale-5);}
+  }
+  // mark options
+  dec.opts.forEach((_,j)=>{
+    const el=document.getElementById(`o${qi}_${j}`);if(!el)return;
+    el.classList.add('lk');
+    if(j===dec.correct)el.classList.add('ok');
+    else if(j===chosen&&!ok)el.classList.add('ng');
+  });
+  // explanation
+  const exp=document.getElementById('exp'+qi);
+  if(exp){
+    exp.innerHTML=`${ok?'✅':'❌'} ${dec.ex}${ok?' <span class="sf sf-p">+'+gain+'</span>':''}`;
+    exp.className=`d-exp show ${ok?'eg':'eb'}`;
+  }
+  G.decResults.push({q:qi,correct:ok,chosen});
+  G.log.push({scenario:sc.id,event:'decision',qi,chosen,correct:dec.correct,ok,ts:new Date().toISOString()});
+  checkAchs();updateTB();updateBars();
+  if(G.consec>=5)unlock('streak5');
+  if(G.decResults.length>=sc.decisions.length){clearT();setTimeout(showNxt,500);}
+  else startT();
+}
+
+// ── NEXT ──
+function showNxt(){
+  const na=document.getElementById('nxt-area');if(!na)return;
+  const isLast=G.scIdx>=DATA[G.level].length-1;
+  na.innerHTML=`<div class="nxt-area"><button class="btn btn-glow" onclick="${isLast?'showLC':'nextSc'}()">${isLast?'🏁 Complete Level':'➡️ Next Scenario'}</button></div>`;
+  na.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function nextSc(){G.scIdx++;window.scrollTo({top:0,behavior:'smooth'});setTimeout(renderSc,150);}
+
+// ── LEVEL COMPLETE ──
+function showLC(){
+  clearT();
+  const acc=G.totalDec>0?Math.round(G.correctDec/G.totalDec*100):100;
+  const stars=acc>=90?'⭐⭐⭐':acc>=65?'⭐⭐':'⭐';
+  const nxt=G.level+1;const hasNxt=!!DATA[nxt];
+  if(acc===100&&G.totalDec>=3)unlock('perfect');
+  const m=document.getElementById('lcm');
+  if(m)m.innerHTML=`
+    <span class="lc-icon">🏆</span>
+    <div class="lc-title">Level ${G.level} Complete!</div>
+    <div class="lc-stars">${stars}</div>
+    <div class="lc-pts">${G.score}</div>
+    <div class="lc-sub">Decision accuracy: ${acc}% · Streak: ${G.streak}🔥</div>
+    <div class="lc-btns">
+      ${hasNxt?`<button class="btn btn-glow" onclick="startGame(${nxt})">▶ Level ${nxt}</button>`:''}
+      <button class="btn btn-green" onclick="showResults()">📊 Results</button>
+      <button class="btn btn-ghost" onclick="showIntro()">🏠 Menu</button>
+    </div>`;
+  document.getElementById('lcov').classList.add('on');
+}
+
+// ── RESULTS ──
+function showResults(){
+  document.getElementById('lcov').classList.remove('on');clearT();
+  const acc=G.totalDec>0?Math.round(G.correctDec/G.totalDec*100):100;
+  const dur=Math.round((Date.now()-G.startTime)/1000);
+  const title=acc>=92?'Executive PM 👔':acc>=78?'Senior PM 🏆':acc>=62?'Project Manager 📋':'Junior Analyst 📝';
+  _log={player_code:'GM-'+Math.random().toString(36).substr(2,8).toUpperCase(),course:'COM0463',project:'Agile vs Waterfall Arena',level:G.level,score:G.score,accuracy_pct:acc,decisions_correct:G.correctDec,decisions_total:G.totalDec,duration_sec:dur,achievements:Array.from(G.achs),events:G.log,timestamp:new Date().toISOString()};
+  const dims=[
+    {n:'Methodology Selection',v:Math.min(100,(G.wfOk+G.agOk)*34),c:'#34d3fc'},
+    {n:'Decision Quality',v:acc,c:'#b98eff'},
+    {n:'Speed & Efficiency',v:Math.min(100,G.speedOk*28),c:'#fbbf24'},
+    {n:'Crisis Management',v:G.achs.has('crisis')?88:20,c:'#f87171'},
+    {n:'Streak Performance',v:Math.min(100,G.streak*18),c:'#22d3a0'},
+    {n:'Overall Score',v:Math.min(100,Math.round(G.score/32)),c:'#fb923c'},
+  ];
+  const rc=document.getElementById('res-content');
+  if(rc)rc.innerHTML=`
+    <div class="res-title">📊 Session Report</div>
+    <div class="res-sub">COM0463 · Agile vs Waterfall Arena · Level ${G.level}</div>
+    <div class="big-num">${G.score}</div>
+    <div class="big-max">points · ${dur}s</div>
+    <div style="text-align:center;margin:.7rem 0;"><span class="rank-pill">${title}</span></div>
+    <div class="dim-grid">${dims.map(d=>`<div class="dim"><div class="dim-name">${d.n}</div><div class="dim-track"><div class="dim-fill" style="width:${d.v}%;background:${d.c}"></div></div><div class="dim-val">${d.v}%</div></div>`).join('')}</div>
+    <div style="margin-bottom:.7rem;font-size:.68rem;"><div style="color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem;">Achievements</div><div style="display:flex;flex-wrap:wrap;gap:.3rem;">${Array.from(G.achs).map(id=>{const a=ACHS.find(x=>x.id===id);return a?`<span class="tag t-green">${a.icon} ${a.name}</span>`:''}).join('')||'<span style="color:var(--text3)">None yet — play more!</span>'}</div></div>
+    <div class="log-pre">${JSON.stringify(_log,null,2).substring(0,320)}...</div>
+    <div class="btn-row">
+      <button class="btn btn-glow" onclick="dlLog()">⬇ Download Log</button>
+      <button class="btn btn-ghost" onclick="startGame(${G.level})">🔄 Retry</button>
+      <button class="btn btn-ghost" onclick="showIntro()">🏠 Menu</button>
+    </div>`;
+  ss('results');
+}
+
+function dlLog(){
+  if(!_log)return;
+  const b=new Blob([JSON.stringify(_log,null,2)],{type:'application/json'});
+  const u=URL.createObjectURL(b),a=document.createElement('a');
+  a.href=u;a.download='gpaf_log_'+Date.now()+'.json';a.click();URL.revokeObjectURL(u);
+}
+
+// ── TIMER ──
+function startT(){
+  clearT();const lim=TLIMITS[G.level];if(!lim)return;
+  G.timerVal=lim;updT();
+  G.timerInt=setInterval(()=>{G.timerVal--;updT();if(G.timerVal<=0){clearT();onTimeout();}},1000);
+}
+function clearT(){if(G.timerInt){clearInterval(G.timerInt);G.timerInt=null;}}
+function updT(){
+  const el=document.getElementById('tclock');if(!el)return;
+  const lim=TLIMITS[G.level];
+  if(!lim){el.textContent='—';el.className='tclock';return;}
+  el.textContent=G.timerVal+'s';el.className='tclock';
+  if(G.timerVal<=8)el.classList.add('crit');else if(G.timerVal<=18)el.classList.add('warn');
+}
+function onTimeout(){
+  if(G.phase==='method'){
+    const btnA=document.getElementById('btn-agile');const btnW=document.getElementById('btn-water');
+    if(btnA)btnA.classList.add('dim');if(btnW)btnW.classList.add('dim');
+    const sc=DATA[G.level][G.scIdx];
+    const fb=document.getElementById('fb-area');
+    if(fb)fb.innerHTML=`<div class="fb-box bad show"><div class="fb-head">⏰ Time's up! Correct answer: ${sc.answer}.</div><div class="fb-body">${sc.answerReason}</div></div>`;
+    G.methodPicked=true;G.streak=0;G.consec=0;
+    setTimeout(renderDecs,1600);
+  }
+}
+
+// ── UI HELPERS ──
+function updateTB(){
+  const s=document.getElementById('sc-score');const sk=document.getElementById('sc-streak');
+  if(s)s.textContent=G.score;
+  if(sk)sk.textContent=G.streak+(G.streak>=3?'🔥':'');
+}
+function updateBars(){
+  if(G.level<3)return;
+  const vals=[G.budget,G.morale,G.quality,G.sched];
+  vals.forEach((v,i)=>{
+    const f=document.getElementById('bf'+i);const l=document.getElementById('bv'+i);
+    if(f)f.style.width=v+'%';if(l)l.textContent=Math.round(v)+'%';
+  });
+}
+function updateDots(n){
+  const el=document.getElementById('prog-dots');if(!el)return;
+  el.innerHTML=Array.from({length:n},(_,i)=>`<div class="dot ${i<G.scIdx?'done':i===G.scIdx?'cur':''}"></div>`).join('');
+}
+
+// ── ACHIEVEMENTS ──
+function unlock(id){
+  if(!G.achs||G.achs.has(id))return;G.achs.add(id);
+  const a=ACHS.find(x=>x.id===id);if(!a)return;
+  const t=document.getElementById('ach-toast');
+  const n=document.getElementById('ach-name');const d=document.getElementById('ach-desc');
+  if(!t||!n||!d)return;
+  n.textContent=a.icon+' '+a.name;d.textContent=a.desc;
+  t.classList.add('on');setTimeout(()=>t.classList.remove('on'),3200);
+}
+function checkAchs(){
+  if(G.wfOk>=3)unlock('wf3');
+  if(G.agOk>=3)unlock('ag3');
+  if(G.speedOk>=3)unlock('speed3');
+}
+
+function howToPlay(){
+  alert('⚡ How to Play\n\n1. Read the project scenario and detail cards\n2. Choose Agile or Waterfall based on the project\'s characteristics\n3. Answer 3 decision questions per scenario\n4. Level 3+: manage Budget, Morale, Quality & Schedule bars\n5. Level 3+: random Crisis Events may appear — your choices have lasting effects\n6. Build streaks for bonus points\n7. Download your game log at the end and submit to your instructor\n\nKey signals:\n→ Stable reqs + regulated + long timeline = Waterfall\n→ Volatile reqs + MVP + startup + fast-changing = Agile\n→ Mixed characteristics = Hybrid (pick the dominant one)');
+}
+</script>
+</body>
+</html>
